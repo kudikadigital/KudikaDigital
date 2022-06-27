@@ -49,20 +49,7 @@ body {
   .longTextService {
     height: 1.011em !important;
   }
-  
-
 }
-
-
-
-
-
-@media (min-width: 1024px) {
-  .longTextService {
-    height: 2em !important;
-  }
-}
-
 
 #toggle{
   margin-right: 0px !important;
@@ -91,7 +78,6 @@ body {
 
   }
 
- 
 
   .heroText {
     font-size: 2.5em;
@@ -99,16 +85,15 @@ body {
   }
 
   .heroText2 {
-    font-size: 2.7em;
+    font-size: 2em;
     line-height: 1;
   }
 
   .sectionHero {
     height: 100% !important;
   }
+
 }
-
-
 
 @media (max-width: 500px) {
 
@@ -120,11 +105,11 @@ body {
   }
 
   .hAll2{
-    margin-top: 140px;
+    margin-top: 50px;
    }
 
    .hAll3{
-    margin-top: 90px;
+    margin-top: 30px;
    }
    
 
@@ -146,8 +131,25 @@ body {
     text-align: left !important;
   }
 
+
+ 
 }
 
+@media (max-width: 1000px) {
+
+  #menuUp{
+            
+    background: hsl(0deg 80% 2%) !important;
+            }
+ 
+}
+@media (min-width: 1024px) {
+  .longTextService {
+    height: 2em !important;
+  }
+
+
+}
 
 
 
