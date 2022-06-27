@@ -4,16 +4,11 @@ body {
   height: 100%;
 }
 
-
 body {
   margin: 0;
   padding: 0;
   background: #000;
 }
-
-
-
-
 
 .header12 {
   background-size: cover !important;
@@ -23,8 +18,6 @@ body {
   z-index: 0;
   top: 0 !important;
 }
-
-
 
 .sectionHero {
   z-index: -11111;
@@ -104,14 +97,9 @@ body {
     
   }
 
-  .hAll2{
-    margin-top: 50px;
+  .hAll1{
+    margin-top: 100px;
    }
-
-   .hAll3{
-    margin-top: 30px;
-   }
-   
 
 
  }
