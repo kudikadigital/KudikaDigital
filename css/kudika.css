@@ -15,6 +15,20 @@ body::-webkit-scrollbar {
     transition: 2s;
 }
 
+.Montserrat {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.JosefinT {
+    /* font-family: 'Josefin Sans', sans-serif !important; */
+    font-weight: 700 !important;
+}
+
+.Josefin {
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+
 body {
     overflow-x: hidden;
     box-sizing: border-box;
@@ -50,6 +64,13 @@ body::-webkit-scrollbar-thumb {
 
 #asdfg {
     transition: all .5s;
+}
+
+
+img.gall{
+       max-height: 100%;
+       width: 100% !important;
+        object-fit: cover;
 }
 
 nav {
