@@ -26,12 +26,16 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <style>
-        /* font-family: 'Josefin Sans', sans-serif;
-        font-family: 'Livvic', sans-serif;
-        font-family: 'Montserrat', sans-serif;
-        font-family: 'Oxygen', sans-serif;
-        font-family: 'Roboto', sans-serif; */
 
+        .rotacao{
+            position: relative !important;
+            transition: 1s !important;
+        }
+
+        .rotacao:hover{
+ transform: rotate(6deg) !important;
+ transition: 1s !important;
+}
         
 @media (max-width: 320px) {
 
@@ -41,19 +45,7 @@
 }
 }
 
-        .Montserrat {
-            font-family: 'Montserrat', sans-serif !important;
-        }
-
-        .JosefinT {
-            /* font-family: 'Josefin Sans', sans-serif !important; */
-            font-weight: 700 !important;
-        }
-
-        .Josefin {
-            font-family: 'Josefin Sans', sans-serif !important;
-        }
-
+     
         .divSe3 {
             width: 100% !important;
             background: url('assets/background_3.png') !important;
@@ -335,8 +327,7 @@
 
                         <a href="#contactenos"
                             style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                            class="text-white zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
-
+                            class="text-white rotacao w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
                             Fale connosco</a>
                     </div>
                 </div>
@@ -502,24 +493,29 @@
 
         <div class=" flex flex-col px-4 md:px-14">
 
-            <div class="bg-white flex mb-16 py-5 rounded-3xl">
-                <div
-                class="xl:w-3/6 bg-white md:rounded-r-3xl md:rounded-none md:bg-transparent hAll1 md:px-10 md:pt-16">
-                <h1 class="text-red-600 font-extrabold w-full text-xl md:text-2xl px-10 pt-10 pb-5">BRANDING</h1>
-                <p class=" font-semibold text-xl text-black text-opacity-75 px-10">Para conquistar seu
-                    cliente ideal, você deve expressar a sua verdade, mostrar o valor de seus
-                    produtos/serviços, sua identidade de marca e atributos, e deixar o consumidor decidir
-                    por si próprio acreditar na sua marca. Portanto, faz parte do Branding entender o seu
-                    valor e mostrá-lo, não apenas falar.
-                </p>
-                <div class="pt-5 px-5">
-                    <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                        class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
-                        Saiba mais</div>
-                </div>
-            </div>
-            <img src="assets/S2.png" class="xl:block hidden mt-32" style="object-fit: contain; width: 55%;" alt="" srcset="">
-            </div>
+
+            <div class=" flex flex-col px-4 md:px-14">
+
+
+
+<div class="bg-white flex mb-16 py-5 rounded-3xl">
+    <div
+    class="xl:w-3/6 bg-white md:rounded-r-3xl md:rounded-none md:bg-transparent hAll1 md:px-10 md:pt-16">
+    <h1 class="text-red-600 font-extrabold w-full text-xl md:text-2xl px-10 pt-10 pb-5">BRANDING</h1>
+    <p class=" font-semibold text-xl text-black text-opacity-75 px-10">Para conquistar seu
+        cliente ideal, você deve expressar a sua verdade, mostrar o valor de seus
+        produtos/serviços, sua identidade de marca e atributos, e deixar o consumidor decidir
+        por si próprio acreditar na sua marca. Portanto, faz parte do Branding entender o seu
+        valor e mostrá-lo, não apenas falar.
+    </p>
+    <div class="pt-5 px-5">
+        <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+            Saiba mais</div>
+    </div>
+</div>
+<img src="assets/S2.png" class="xl:block hidden mt-32" style="object-fit: contain; width: 55%;" alt="" srcset="">
+</div>
 
           
 <div class="bg-white mb-16 py-5 flex rounded-3xl">
@@ -534,7 +530,7 @@
     </p>
     <div class="pt-5 px-5">
         <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-            class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
             Saiba mais</div>
     </div>
 </div>
@@ -558,7 +554,7 @@
     </p>
     <div class="pt-5 px-5">
         <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-            class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
             Saiba mais</div>
     </div>
 </div>
@@ -705,9 +701,10 @@ document.querySelector('.others').style.display = 'flex'
 
                                     <div class="pt-5 w-full flex justify-center">
 
-                                        <a href="web.html" style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                                            class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
-                                            Ver mais</a>
+                                        <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                                            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                                            Ver mais</div>
+
 
                                     </div>
                                 </div>
@@ -929,7 +926,7 @@ document.querySelector('.others').style.display = 'flex'
                                     <div class="pt-5 w-full flex justify-center">
 
                                         <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                                            class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                                            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
                                             Ver mais</div>
 
                                     </div>
@@ -992,7 +989,7 @@ document.querySelector('.others').style.display = 'flex'
 
                                         <a href="branding.html"
                                             style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                                            class="text-white animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                                            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
                                             Ver mais</a>
 
                                     </div>
@@ -1410,8 +1407,8 @@ document.querySelector('.others').style.display = 'flex'
                         <!-- <input value="Enviar" class="w-80 rounded-2xl py-3 bg-red-600 text-red-50"> -->
                         <button type="submit">
                             <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
-                                class="text-white animated-fast zoomIn w-52 h-14 flex items-center justify-center cursor-pointer font-bold">
-                                ENVIAR</div>
+                                class="text-white rotacao animated-fast zoomIn w-52 h-14 flex items-center justify-center cursor-pointer font-bold">
+                                Enviar</div>
                         </button>
                     </div>
 

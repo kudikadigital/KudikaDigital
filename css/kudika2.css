@@ -600,3 +600,8 @@ position: fixed !important; */
   -ms-transform-origin: 45% 43%;
   transform-origin: 45% 43%;
 }
+
+
+.z-1111{
+  z-index: -1111;
+}

@@ -10,15 +10,29 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/kudika.css">
+    <link rel="stylesheet" href="css/kudika2.css">
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
-    
-<!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"-->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/pace-theme-flash.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Livvic:wght@100;200;300;400;500;600;700;900&family=Montserrat:wght@100;300;400;500;600;700;800;900&family=Oxygen:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <style>
+        
         body::-webkit-scrollbar {
             width: 6px;
             background: #fff;
@@ -27,686 +41,1085 @@
             transition: 2s;
         }
 
-        body {
-            overflow-x: hidden;
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        body::-webkit-scrollbar-thumb {
-            padding: 5px 1px;
-            width: 0px;
-            background: #ccc;
-            /* border-radius: 100px; */
-            border-right: 1px solid transparent;
-            border-left: 1px solid transparent;
-            transition: 2s;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-        }
-
-
-        #map {
-            z-index: 1;
-            height: 400px;
-            width: 100%;
-        }
-
-
-        .hvrssss>div {
-            display: none;
-            transition: .4s !important;
-        }
-
-        .hvrssss:hover>div {
-            display: block;
-            transition: .4s !important;
-        }
-
-
-        .hvrssss:hover>h1 {
-            margin-top: -300px;
-            margin-left: 10px;
-        }
-
-        .clip {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: 0.5s;
-        }
-
-        .clip.clip1 {
-            background: url('assets/pexels-mikael-blomkvist-6476249.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            clip-path: polygon(100% 0%, 61% 0%, 51% 100%, 100% 100%);
-            /* clip-path: polygon(0 0, 55% 0, 20% 100%, 0% 100%); */
-        }
-
-        .clipp {
-            top: 0;
-            left: 0;
-            width: 205%;
-            height: 600px;
-            transition: 0.5s;
-        }
-
-        .clipp.clipp2 {
-            background: url('assets/pexels-mikael-blomkvist-6476249.jpg');
-            background-size: cover;
-            clip-path: polygon(0 0, 52.3% 0%, 42% 100%, 0% 100%);
-            background-attachment: fixed;
-        }
-
-        .menuuu {
-            transition: all 0.5s ease !important;
-        }
-
-        #asdfg {
-            transition: all .5s;
-        }
-
-        nav {
-            width: 100%;
-        }
-
-        label.logo {
-            color: white;
-            font-size: 35px;
-            list-style: 80px;
-            padding: 0 100px;
-
-        }
-
-        nav ul {
-            float: right;
-            margin-right: 20px;
-            transition: all .5s;
-            display: flex;
-        }
-
-        nav ul button {
-            display: inline-block;
-            margin: 0 5px;
-        }
-
-        nav ul button li {
-            color: #202020;
-            font-size: 17px;
-            padding: 0px 5px;
-        }
-
-        .checkbtn {
-            font-size: 30px;
-            color: #fff;
-            float: right;
-            line-height: 80px;
-            margin-right: 40px;
-            cursor: pointer;
-        }
-
-        #check {
+        .lg-toolbar{
+            display: none !important;
+        } 
+        .lg-actions{
             display: none;
         }
 
-        @media (max-width: 952px) {
-            label.logo {
-                padding-left: 50px;
-                transition: all .5s;
-            }
+        .removeF {
 
-            nav ul button li {
-                font-size: 16px;
-                transition: all .5s;
-            }
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
         }
 
-        @media (max-width: 767px) {
-            .checkbtn {
-                display: block !important;
-            }
+        #remove1 {
 
-            nav ul {
-                position: fixed;
-                height: 100vh;
-                background: #fff;
-                top: 93px;
-                left: -100%;
-                text-align: center;
-                transition: all .5s;
-                width: 100%;
-                display: block;
-            }
-
-            nav ul button {
-                display: flex !important;
-                margin: 25px 0;
-                line-height: 30px;
-                transition: all .5s;
-                flex-direction: column !important;
-            }
-
-            nav ul button li {
-                transition: all .5s;
-                font-size: 20px;
-            }
-
-            #check:checked~ul {
-                left: 0;
-                transition: all .5s;
-            }
+            transform: rotate(45deg);
 
         }
 
+        #remove2 {
 
-
-        @media (max-width: 400px) {
-          .mnm{
-              display: none;
-          }
-          .txthid{
-              display: none;
-          }
-          
-
-          .phoneuse{
-              width: 260px;
-          }
+            transform: rotate(-45deg) translateX(7px);
 
         }
-        @media (max-width: 430px) {
 
-        .lkl{
-            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
-          }
-        
-          .txt{
-              font-size: 2.2em;
-          }
-        
+        #removeMn {
+            padding: 20px !important;
         }
-
-
-
-
-          .typeText::after {
-  content: "|";
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 100% {opacity: 1;}
-  50% {opacity: 0;}
-}
-
-
-          
-.listamnu li:hover{
-    background-color: #ef4444;
-}
-.listamnu{
-    color: #fff;
-}
-.listamnu li.actived{
-    background-color: #ef4444 !important; 
-    color: #fff;
-}
-.dnone{
-    display: none;
-}
     </style>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
-   
-    
- <div class=" bg-red-50">
-    <nav class="  fixed w-full z-50 md:z-40 bg-opacity-95 items-center justify-between md:justify-start bg-transparent  py-1.5 px-3 sm:px-10 inset-x-0" id="asdfg" style="backdrop-filter: blur(8px);">
-        <div class="px-5">
-            <div class="flex justify-between" id="qwert">
-                <div class="flex space-x-4 w-full justify-between">
-                    <!-- logo -->
-                  <a href="/" class="py-1 text-gray-700 hover:text-gray-900">
-               <img src="assets/logo2.png" id="imgo" class=" w-32" alt="">
-                </a>  <!-- primary nav -->
-                    <div class="hidden md:flex items-center space-x-1"> 
+<body class=" demo-4">
 
-                        <ul id="menuuu" class="lg:ml-5 text-white flex flex-col items-center md:items-start md:flex-row ml-0 md:ml-5 md:space-x-3">
-                            <a onclick="window.location.href='index.html';" class="cursor-pointer">
-                                <li class="border-b-2 font-bold transition border-transparent hover:border-red-500">Home</li>
-            
-                            </a> <a class="cursor-pointer"                                onclick="window.scrollTo({  top: 1320, behavior: 'smooth'  });">
-                                <li class="border-b-2 transition font-bold border-transparent hover:border-red-500">Serviços</li>
-            
-                            </a> <a class="cursor-pointer"                                onclick="window.scrollTo({  top: 1900, behavior: 'smooth'  });">
-                                <li class="border-b-2 transition font-bold border-transparent hover:border-red-500">Preços</li>
-            
-                            </a> <a class="cursor-pointer"                                onclick="window.scrollTo({  top: 4100, behavior: 'smooth'  });">
-                                <li class="border-b-2 transition font-bold border-transparent hover:border-red-500">Contactar</li>
-            
-                            </a>
+
+    <div class="circle-cursor circle-cursor--inner"></div>
+    <canvas class="circle-cursor circle-cursor--outer hidden lg:block" resize></canvas>
+
+
+
+    <div id="qwert" class="w-full bottom-10 hidden flex justify-center items-center fixed">
+
+        <div onclick="window.scrollTo({  top: 0, behavior:'smooth' });"
+            class="box px-4 py-6 hover:shadow-2xl hover:border-2 hover:border-red-600 cursor-pointer rounded-full shadow-lg border font-bold text-red-600">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <section class="h-screen">
+        <div class="header12 h-screen Montserrat">
+            <header
+                class=" w-full z-50 md:z-40 absolute items-center justify-between md:justify-start  pb-2 pt-3 px-3 sm:px-10 inset-x-0"
+                id="asdfg">
+                <div class="px-5">
+                    <div class="flex justify-between">
+                        <!--  -->
+                        <div class="flex justify-between items-center space-x-4 w-full" id="www">
+                            <!-- logo -->
+                            <a href="/" class="py-1 ml-0 text-gray-700 hover:text-gray-900">
+
+                                <img src="assets/logo2.png" id="imgo" class=" w-32" alt="">
+
+                            </a> <!-- primary nav -->
+                            <div class=" flex items-center">
+                                <div>
+
+                                    <a id="toggle" class="browser-window__link cursor-pointer">
+                                        <div class="hamburger">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <nav class="h-full">
+                                    <div id="menuUp" onclick="this.style.display='none'"
+                                        class=" items-start w-96 hidden h-full fixed -top-10 animated-fast px-16 py-10 text-2xl md:text-3xl rounded-b-2xl text-white mt-10 bg-black bg-opacity-70 shadow-2xl right-32 absolute"
+                                        style="backdrop-filter: blur(100px); position: fixed !important; line-height: 2;">
+                                        <div class="flex justify-start md:justify-center relative">
+                                            <div>
+
+                                                <a class="browser-window__link removeF cursor-pointer">
+                                                    <div class="hamburger" id="removeMn">
+                                                        <span id="remove1"></span>
+                                                        <span id="remove2"></span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="flex w-full text-start md:text-center flex-col">
+                                            <a href="#" class="text-xl sm:text-2xl">
+                                                <p class="animate fadeInLeft capitalize">Início</p>
+                                            </a>
+                                            <a href="#sobrenos" class="text-xl sm:text-2xl">
+                                                <p class="animate fadeInLeft capitalize">Sobre nós</p>
+                                            </a>
+                                            <a href="#servicos" class="text-xl sm:text-2xl">
+                                                <p class="animate fadeInLeft capitalize">
+                                                    Serviços</p>
+                                            </a>
+                                            <a href="#portfolio" class="text-xl sm:text-2xl">
+                                                <p class="animate fadeInLeft capitalize">Portfólio</p>
+                                            </a>
+                                            <a href="#contactenos" class="text-xl sm:text-2xl">
+                                                <p class="animate fadeInLeft capitalize">
+                                                    Contacte-nos
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- mobile menu -->
+
+            </header>
+
+            <div class="px-8 md:px-14 pt-28 flex flex-col z-0 md:flex-row justify-center w-full h-screen fixed z-1111">
+
+
+
+                <div style=" background-size: contain; background-repeat: no-repeat; background-position: top;"
+                    class="md:pt-48 pt-16 text-center flex flex-col items-center animated-fast fadeIn md:w-5/6">
+
+                    <!-- <i class="fa fa-code w-full text-white" style="font-size: 4em;"></i> -->
+                    <img src="assets/web-programming.png" width="90" alt="">
+                    <h1 class="font-bold text-5xl md:text-6xl text-center text-white ">Desenvolvimento de Websites</h1>
+                    <h1 class="font-thin text-xl text-white">
+                        Tenha uma página web, acessível a todos, para mostrar ao mundo o seu produto!
+                    </h1>
+
+
+                </div>
+
+            </div>
+
+
+
+    </section>
+
+    <main>
+
+
+
+
+
+
+
+<section>
+    <!-- É a área que o Domingos pediu para as infos... -->
+</section>
+
+        <section id="portfolio">
+            <div style="background-color: #0a0a0a;" class="servicos pt-24 justify-center flex flex-wrap">
+                <div class=" px-4 sm:px-8 flex md:px-14 w-full">
+                    <h1 style="color: #c6121a;" class="pt-20 pb-6 font-extrabold text-4xl sm:text-5xl"
+                        data-aos="fade-right">
+                        PORTFÓLIO WEB</h1>
+
+                </div>
+                <div class="w-full mt-10 flex flex-col justify-around items-center">
+                    <div class="">
+                        <ul class="flex px-4 listamnu mb-5 flex-wrap md:space-x-2 space-x-1">
+                            <li class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50 actived"
+                                onclick="
+document.querySelector('.webdev').style.display = 'flex'
+document.querySelector('.infd').style.display = 'none'
+document.querySelector('.gesms').style.display = 'none'
+document.querySelector('.desgra').style.display = 'none'
+document.querySelector('.ftga').style.display = 'none'
+document.querySelector('.others').style.display = 'none'
+"> <i class="fas text-white fa-code mr-2"></i> E-commerce</li>
+                            <li onclick="
+document.querySelector('.webdev').style.display = 'none'
+document.querySelector('.infd').style.display = 'flex'
+document.querySelector('.gesms').style.display = 'none'
+document.querySelector('.desgra').style.display = 'none'
+document.querySelector('.ftga').style.display = 'none'
+document.querySelector('.others').style.display = 'none'
+" class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50"> <i
+                                    class="fas text-white fa- fa-tablet mr-2"></i> Landing page
+                            </li>
+                            <li onclick="
+document.querySelector('.webdev').style.display = 'none'
+document.querySelector('.infd').style.display = 'none'
+document.querySelector('.gesms').style.display = 'flex'
+document.querySelector('.desgra').style.display = 'none'
+document.querySelector('.ftga').style.display = 'none'
+document.querySelector('.others').style.display = 'none'
+" class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50"> <i
+                                    class="fa text-white fa-globe mr-1"></i> Hotsites</li>
+                            <li onclick="
+document.querySelector('.webdev').style.display = 'none'
+document.querySelector('.infd').style.display = 'none'
+document.querySelector('.gesms').style.display = 'none'
+document.querySelector('.desgra').style.display = 'flex'
+document.querySelector('.ftga').style.display = 'none'
+document.querySelector('.others').style.display = 'none'
+" class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50"> <i
+                                    class="fas text-white fa-lightbulb mr-2"></i> Institucionais</li>
+                            <li onclick="
+document.querySelector('.webdev').style.display = 'none'
+document.querySelector('.infd').style.display = 'none'
+document.querySelector('.gesms').style.display = 'none'
+document.querySelector('.desgra').style.display = 'none'
+document.querySelector('.ftga').style.display = 'flex'
+document.querySelector('.others').style.display = 'none'
+" class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50"> <i
+                                    class="fas text-white fa-camera mr-1"></i> Cobertura de eventos</li>
+                            <li onclick="
+document.querySelector('.webdev').style.display = 'none'
+document.querySelector('.infd').style.display = 'none'
+document.querySelector('.gesms').style.display = 'none'
+document.querySelector('.desgra').style.display = 'none'
+document.querySelector('.ftga').style.display = 'none'
+document.querySelector('.others').style.display = 'flex'
+" class="bg-red-700 transition cursor-pointer w-full md:w-auto py-2 px-5 rounded-lg mb-2 text-red-50"> <i
+                                    class="fa fa-plus mr-1"></i>
+                                Outros serviços</li>
                         </ul>
 
                     </div>
-                </div> <!-- secondary nav -->
-                <!-- <div class="hidden md:flex items-center space-x-1"> <a class="py-5 px-3">Login</a> <a class="py-2 px-3 bg-yellow-400 text-white hover:bg-yellow-300 text-sm hover:text-yellow-800 rounded transition duration-300">Signup</a> </div> mobile button goes here -->
-                <div class="md:hidden flex items-center"> <button class="mobile-menu-button focus:outline-none"> <i class='bx bx-menu text-white text-5xl mt-1'  id="check-i"></i> </button> </div>
+
+
+            
+                    <div style="background: url('assets/BgP.png');background-size: cover; background-repeat: no-repeat repeat; "
+                        class="border-gray-400 bg-opacity-10 w-full mt-5 container  mx-auto px-4 rounded-2xl">
+                   <div>
+                            <div
+                                class="webdev demo-gallery  w-full py-8 px-4 ">
+
+
+
+                                <ul id="lightgallery" class="flex flex-wrap -mx-4">
+                    
+                                    <li data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dc5918146421089.62b06fe847cd3.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dc5918146421089.62b06fe847cd3.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dc5918146421089.62b06fe847cd3.png" alt="Thumb-1">
+                                        </a>
+                                    </li>
+
+                                    <li data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/3689e9146421089.62b06fe848646.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/3689e9146421089.62b06fe848646.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/3689e9146421089.62b06fe848646.png" alt="Thumb-1">
+                                        </a>
+                                    </li>
+
+                           
+
+                                    <li data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/disp/138c2c146421089.62b06fe84467f.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/138c2c146421089.62b06fe84467f.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/138c2c146421089.62b06fe84467f.png" alt="Thumb-1">
+                                        </a>
+                                    </li>        
+
+
+                                    
+                                    <li  data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/fb36d5146421089.62b06fe849acf.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/fb36d5146421089.62b06fe849acf.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/fb36d5146421089.62b06fe849acf.png" alt="Thumb-1">
+                                        </a>
+                                    </li>  
+                                    
+                                    
+                                    <li  data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d91805146421089.62b06fe84e32d.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d91805146421089.62b06fe84e32d.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d91805146421089.62b06fe84e32d.png" alt="Thumb-1">
+                                        </a>
+                                    </li>  
+
+                                    <li  data-aos="fade-up" class="md:w-1/2 p-4 md:mb-8 md:mb-0 hvr-rotate cursor-pointer rounded-xl" data-responsive="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5c2f37146421089.62b06fe84daac.png 800" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5c2f37146421089.62b06fe84daac.png" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
+                                        <a href="">
+                                            <img class="gall shadow-md rounded-3xl
+                                           " src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5c2f37146421089.62b06fe84daac.png" alt="Thumb-1">
+                                        </a>
+                                    </li>  
+                            
+
+
+                               
+                                </ul>
+
+
+                            </div>
+
+
+                            <div
+                                class="infd dnone px-2 justify-around md:items-center w-full pt-8 pb-12 flex flex-col md:flex-row ">
+
+
+                                <div
+                                    class="flex space-x-2 pt-5 space-y-2 items-center flex-wrap lg:px-20  justify-center">
+                                    <div>
+                                        <h1 class="text-white text-4xl ">Sessão de Digital Influencers - Em construção
+                                        </h1>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        data-name="Layer 1" width="743.70364" height="416.5"
+                                        viewBox="0 0 743.70364 416.5">
+                                        <path
+                                            d="M743.934,373.90525H729.79831a1.81781,1.81781,0,0,1-1.81577-1.64688l-2.82949-29.00177h23.42618L745.74975,372.258A1.81784,1.81784,0,0,1,743.934,373.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M748.54182,346.90525H725.19047a1.82648,1.82648,0,0,1-1.82433-1.82433v-4.37838a1.82647,1.82647,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82648,1.82648,0,0,1,748.54182,346.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path d="M578.54867,342.75h-56v-17c17.6958-12.31482,33.37451-11.24438,54,1Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="281.433 402.957 269.173 402.956 267.34 355.668 281.435 355.669 281.433 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M512.70726,656.59064l-39.53051-.00146v-.5a15.38605,15.38605,0,0,1,15.38647-15.38624h.001l24.1438.001Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <polygon
+                                            points="350.486 402.957 362.746 402.956 364.579 355.668 350.484 355.669 350.486 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M575.50745,640.70392l24.1438-.001h.001a15.38605,15.38605,0,0,1,15.38647,15.38624v.5l-39.53051.00146Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M578.9566,638.646a4.52007,4.52007,0,0,1-4.394-3.52247L544.17608,502.58446a1.45735,1.45735,0,0,0-1.46411-1.17383h-.00757a1.45832,1.45832,0,0,0-1.4602,1.18848L513.33966,634.24462a4.52164,4.52164,0,0,1-4.40235,3.5664H495.64459a4.50015,4.50015,0,0,1-4.49219-4.76562l9.90088-166.85547,3.98413-1.17871.07471.001,78.25806.68457,16.66748,166.67187a4.49788,4.49788,0,0,1-4.11646,4.92188l-16.604,1.34082Q579.13593,638.646,578.9566,638.646Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <circle cx="318.49104" cy="45.97086" r="24.56103" fill="#ffb8b8" />
+                                        <path
+                                            d="M531.59308,484.48388a42.39306,42.39306,0,0,1-12.72754-1.791,28.09708,28.09708,0,0,1-17.03809-14.375,4.50533,4.50533,0,0,1-.335-3.35449c2.70874-9.24512,15.79858-57.30078,7.44678-95.50293a40.48488,40.48488,0,0,1,5.75512-31.11426,39.97674,39.97674,0,0,1,25.927-17.43848l.00024-.001c1.38525-.27051,2.77808-.49219,4.13916-.66016a39.83567,39.83567,0,0,1,32.25781,10.61328,40.82033,40.82033,0,0,1,12.81568,32.36035l-6.41895,103.00391a4.46,4.46,0,0,1-2.398,3.70313C573.62481,473.80126,551.41778,484.48388,531.59308,484.48388Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M574.38563,269.64169A30.15573,30.15573,0,0,0,541.33294,251.058l7.744,6.2578c-9.62156.324-19.74953-.36491-26.61937,6.37933,2.18707-.06067,5.05355,4.61731,7.24062,4.55664-4.08894.08087-7.79673,2.95387-9.60282,6.62321a18.86524,18.86524,0,0,0-1.114,11.99709c.80759,4.00921,6.96813,13.40164,8.62633,17.14011-.28515-9.77015,18.94922-33.07441,28.3418-30.64234a25.77238,25.77238,0,0,0-11.90045,9.03527A34.90423,34.90423,0,0,1,564.75,279.01807a14.64993,14.64993,0,0,0,4.935.27623,6.02513,6.02513,0,0,0,3.57206-9.62851Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M529.90121,478.29883a4.50354,4.50354,0,0,1-1.802-.38037l-46.60059-20.34033a4.47019,4.47019,0,0,1-2.55322-5.27686l30.84985-116.53906a16.86544,16.86544,0,0,1,20.94068-11.90332l12.33544,3.5205-8.68383,146.68067a4.51257,4.51257,0,0,1-2.146,3.56982A4.46616,4.46616,0,0,1,529.90121,478.29883Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M616.14877,452.3l-2.0503-7.73-2.96972-11.24-1.43018-5.39-2.96972-11.21-21.43018-80.97a16.84727,16.84727,0,0,0-20.93994-11.9l-12.33008,3.52,6.10986,103.17.63037,10.77.39991,6.79v.01l.63964,10.71.9004,15.23a4.53042,4.53042,0,0,0,4.48974,4.24,4.58256,4.58256,0,0,0,1.80029-.38l46.59961-20.34A4.46627,4.46627,0,0,0,616.14877,452.3Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="381.55 186.19 330.621 199.57 329.99 188.8 378.581 174.98 381.55 186.19"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="385.95 202.82 331.66 217.08 331.021 206.37 331.021 206.36 382.981 191.58 385.95 202.82"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="308.181 191.12 307.55 201.69 257.601 186.81 260.53 175.75 308.181 191.12"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="307.14 208.65 256.17 192.2 253.24 203.29 306.52 219.16 307.14 208.65"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M485.20719,461.454a10.7427,10.7427,0,0,0,7.04354-14.89081l23.962-75.22559-16.99143-3.55858-21.96889,73.75316a10.80091,10.80091,0,0,0,7.95476,19.92182Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M516.87787,334.35575h0c4.879.4977,7.62331,5.98353,6.41025,12.81414L517.467,379.94827c-.43637,2.45712-2.45848,4.40264-4.13928,3.98249l-19.69048-4.922c-1.51517-.37875-2.07319-2.53134-1.21458-4.68526L504.24337,344.67C506.81048,338.23017,512.14754,333.87323,516.87787,334.35575Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M546.54867,241.75h0a31.99347,31.99347,0,0,1,31.97461,31h6.02539a2.00006,2.00006,0,0,1,2,2v8a2.00006,2.00006,0,0,1-2,2h-68a2.00006,2.00006,0,0,1-2-2v-9.00006A31.99981,31.99981,0,0,1,546.54867,241.75Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M550.37241,439.55485H536.23674A1.8178,1.8178,0,0,1,534.421,437.908l-2.82948-29.00177h23.42617l-2.82948,29.00142A1.81783,1.81783,0,0,1,550.37241,439.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M554.98025,412.55485H531.6289a1.82648,1.82648,0,0,1-1.82433-1.82432v-4.37838a1.82648,1.82648,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82647,1.82647,0,0,1,554.98025,412.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M543.60787,424.00154a10.52648,10.52648,0,0,1,1.62647.31919l37.64605-32.28411-2.20057-11.84534,17.44265-5.65757L604.056,395.125a8,8,0,0,1-3.40935,8.97531l-47.67746,30.1704a10.49709,10.49709,0,1,1-9.36135-10.26914Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M582.97837,337.06325h0c5.21164-1.45893,10.4192,2.50789,12.16411,9.26592l8.3734,32.43014c.62768,2.431-.59144,5.01448-2.49556,5.28836l-22.30669,3.20857c-1.71648.2469-3.22884-1.51345-3.29175-3.8315l-.8661-31.9132C574.3677,344.58095,577.92556,338.47772,582.97837,337.06325Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M882.81118,544.22005a167.50624,167.50624,0,0,1-24.0754-44.93174,4.30257,4.30257,0,0,1,2.03179-5.17937l35.14526-18.83159a4.24661,4.24661,0,0,1,3.72552-.15124,4.31917,4.31917,0,0,1,2.46132,2.884,102.32827,102.32827,0,0,0,22.44563,41.89074,4.318,4.318,0,0,1,1.03823,3.64653,4.2466,4.2466,0,0,1-2.18939,3.01811L888.24888,545.3971A4.30257,4.30257,0,0,1,882.81118,544.22005Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M885.20949,542.41789a1.29855,1.29855,0,0,0,1.62208.335l35.1455-18.832a1.24595,1.24595,0,0,0,.65259-.897,1.31806,1.31806,0,0,0-.32495-1.12793,105.34006,105.34006,0,0,1-23.10693-43.125,1.31862,1.31862,0,0,0-.75806-.895,1.24691,1.24691,0,0,0-1.11035.0459l-35.14478,18.83154a1.29832,1.29832,0,0,0-.61963,1.53711,164.50739,164.50739,0,0,0,23.64453,44.12744Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#fff" />
+                                        <path
+                                            d="M898.22008,502.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,898.22008,502.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M905.22008,515.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,905.22008,515.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M860.32682,504.3196a10.74267,10.74267,0,0,1-2.06222-16.343l-8.0725-114.55784,23.253,2.25508.63868,112.18666a10.80091,10.80091,0,0,1-13.757,16.45913Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M855.45584,411.91175a4.48168,4.48168,0,0,1-1.85871-3.40066L851.89328,377.635a12.39862,12.39862,0,0,1,24.34642-3.92684l7.48456,27.6049a4.50507,4.50507,0,0,1-3.16561,5.52077L859.268,412.60634A4.48292,4.48292,0,0,1,855.45584,411.91175Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="587.676 403.408 575.416 403.408 569.584 356.12 587.678 356.12 587.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M566.65909,399.90461H590.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H551.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,566.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <polygon
+                                            points="633.676 403.408 621.416 403.408 615.584 356.12 633.678 356.12 633.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M612.65909,399.90461H636.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H597.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,612.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <path
+                                            d="M815.245,621.33534l-13.49634-.64355a4.499,4.499,0,0,1-4.28587-4.46289c-3.5581-54.91919-8.48584-113.80722-.94189-136.55664a4.50108,4.50108,0,0,1,5.14646-4.48535l53.99366,7.83789a4.47383,4.47383,0,0,1,3.85353,4.41992c6.89356,26.93641,7.20508,75.7819,6.94434,126.53418a4.5005,4.5005,0,0,1-4.5,4.53418h-14.55a4.47888,4.47888,0,0,1-4.44531-3.80078l-8.977-57.06739a3.5,3.5,0,0,0-6.93287.12793l-7.12622,59.60254a4.5171,4.5171,0,0,1-4.46875,3.96582Q815.35245,621.3412,815.245,621.33534Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M824.746,487.45058c-11.89942-6.61133-21.197-8.34863-25.67993-8.7959a4.41807,4.41807,0,0,1-3.05347-1.67285,4.47791,4.47791,0,0,1-.93115-3.40137l12.9375-96.05078a33.21915,33.21915,0,0,1,19.36352-25.957,32.30589,32.30589,0,0,1,31.39551,2.46094q.665.44238,1.30518.90332a33.17817,33.17817,0,0,1,12.63647,34.57324c-7.93359,32.45508-10.65869,85.66211-11.12451,95.999a4.46546,4.46546,0,0,1-2.918,4.00489,45.085,45.085,0,0,1-15.22583,2.71093A38.12459,38.12459,0,0,1,824.746,487.45058Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <circle cx="607.41949" cy="72.21977" r="24.56103" fill="#a0616a" />
+                                        <path
+                                            d="M852.94827,333.40134c-4.582,4.88078-13.09132,2.26066-13.68835-4.40717a8.05556,8.05556,0,0,1,.01013-1.5557c.30827-2.95357,2.01461-5.635,1.60587-8.7536a4.59041,4.59041,0,0,0-.8401-2.14891c-3.65125-4.88934-12.22228,2.18687-15.6682-2.2393-2.113-2.714.3708-6.98712-1.25066-10.02051-2.14-4.00357-8.47881-2.0286-12.45387-4.22115-4.42275-2.43949-4.15822-9.22525-1.24686-13.35269,3.55052-5.0336,9.77572-7.71952,15.92335-8.106612.25292,1.27475,17.9923,3.51145c6.52108,2.54134,12.98768,6.05351,17.00066,11.78752,4.88022,6.97317,5.34986,16.34794,2.90917,24.50175C861.757,323.35646,856.68993,329.41566,852.94827,333.40134Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M872.39877,357.28c-.43018-2.02-4.12012-4.78-9.39991-7.03a58.13527,58.13527,0,0,0-52.5,4.5,2.47961,2.47961,0,0,0-2.29,1.95l-17.76026,78.55-2.31006,10.23-1.52978,6.77-2.31006,10.2-1.23,5.45a2.5078,2.5078,0,0,0,2.22021,3.05l76.68995,6.62c.06982,0,.1499.01.21972.01a2.50026,2.50026,0,0,0,2.48-2.34l.73-11.11.78028-11.88.33984-5.15.77-11.85,5.10986-77.84V357.34Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M746.564,362.22439a10.52617,10.52617,0,0,1,.23929,1.64013l42.95745,24.782,10.44142-6.01094,11.13116,14.57228L788.99613,413.1284l-49.00791-38.66268a10.4958,10.4958,0,1,1,6.57573-12.24133Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M791.295,386.53919a4.48166,4.48166,0,0,1,1.29315-3.65337l21.8634-21.86849a12.39862,12.39862,0,0,1,19.16808,15.51623l-15.57,23.9922a4.50506,4.50506,0,0,1-6.22447,1.3251l-18.5043-12.00853A4.48289,4.48289,0,0,1,791.295,386.53919Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="639.15 193.5 638.38 205.35 559.99 203.73 562.3 193.5 639.15 193.5"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="638.041 210.5 637.26 222.38 556.15 220.7 558.461 210.5 638.041 210.5"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M836.04867,266.25h0a31.99347,31.99347,0,0,0-31.97461,31h-6.02539a2.00006,2.00006,0,0,0-2,2v8a2.00006,2.00006,0,0,0,2,2h68a2.00006,2.00006,0,0,0,2-2v-9.00006A31.99981,31.99981,0,0,0,836.04867,266.25Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M336.26259,584.80615a39.063,39.063,0,0,1-37.72112-6.64474c-13.212-11.08918-17.35435-29.35854-20.72485-46.275l-9.96924-50.0356L288.719,496.22223c15.00965,10.33508,30.35744,21.00126,40.75007,35.971134.929,35.40506,6.57885,51.60314"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M334.47849,645.38466c2.11249-15.38745,4.28468-30.97255,2.80288-46.52494-1.316-13.81219-5.52988-27.30283-14.10882-38.36422a63.81942,63.81942,0,0,0-16.37384-14.83745c-1.63739-1.03352-3.14442,1.56139-1.51416,2.59041a60.67173,60.67173,0,0,1,23.99889,28.9564c5.22489,13.28947,6.06393,27.77612,5.16355,41.89337-.54449,8.53723-1.69847,17.01851-2.86134,25.48891a1.55429,1.55429,0,0,0,1.04766,1.84518,1.50915,1.50915,0,0,0,1.84518-1.04766Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path
+                                            d="M314.13137,618.15614a28.7553,28.7553,0,0,1-25.05474,12.93134c-12.68315-.60209-23.25684-9.45412-32.77516-17.85807l-28.15329-24.85722,18.63281-.8917c13.39961-.64126,27.14492-1.23941,39.90759,2.89278s24.53307,14.07691,26.8668,27.2873"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M340.44853,654.23018c-10.16773-17.99115-21.9614-37.98626-43.03473-44.377a48.022,48.022,0,0,0-18.10109-1.869c-1.9218.1657-1.44191,3.1281.4764,2.96269a44.61387,44.61387,0,0,1,28.88649,7.64231c8.1449,5.544,14.48659,13.25166,19.85415,21.42526,3.28778,5.00658,6.23277,10.22556,9.17833,15.43753.94133,1.66564,3.69278.46329,2.74045-1.22181Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path d="M970.85182,658.25h-712a1,1,0,0,1,0-2h712a1,1,0,0,1,0,2Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                    </svg>
+
+
+                                </div>
+                            </div>
+                            <div
+                                class="gesms dnone  px-2 justify-around md:items-center w-full pt-8 pb-12 flex flex-col md:flex-row ">
+
+                                <div
+                                    class="flex gallery_item space-x-2 pt-5 space-y-2 flex-wrap lg:px-20  justify-center">
+
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/58d1f5146421089.62b06fe84504d.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/58d1f5146421089.62b06fe84504d.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/4b990a146421089.62b06fe84bd22.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/4b990a146421089.62b06fe84bd22.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f986a146421089.62b06fe846019.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/4f986a146421089.62b06fe846019.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/773311146421089.62b06fe847473.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/773311146421089.62b06fe847473.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/407205146421089.62b06fe843dae.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/407205146421089.62b06fe843dae.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/17b727146421089.62b06fe84b1b2.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/17b727146421089.62b06fe84b1b2.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+
+
+
+                                    <div class="pt-5 w-full flex justify-center">
+
+                                        <div style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                                            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                                            Ver mais</div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div
+                                class="desgra dnone  px-2 justify-around md:items-center w-full pt-8 pb-12 flex flex-col md:flex-row ">
+
+                                <div
+                                    class="flex gallery_item space-x-2 pt-5 space-y-2 flex-wrap lg:px-20  justify-center">
+
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/dc4d97146421089.62b06fe84c7c4.jpg"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/dc4d97146421089.62b06fe84c7c4.jpg'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/fs/0f7a65146421089.62b06fe84691e.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/0f7a65146421089.62b06fe84691e.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d61587146421089.62b06fe84f688.jpg"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d61587146421089.62b06fe84f688.jpg'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/eb0eb9146421089.62b06fe84a64e.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/eb0eb9146421089.62b06fe84a64e.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/fs/a0d081146421089.62b06fe84ecf1.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/a0d081146421089.62b06fe84ecf1.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+                                    <a href="https://mir-s3-cdn-cf.behance.net/project_modules/fs/79f926146421089.62b06fe84d11f.png"
+                                        class="colorbox w-full md:w-80 ">
+                                        <div class=" flex items-end border border-white hvr-rotate cursor-pointer p-4 rounded-xl h-80 w-full md:w-80"
+                                            style="background:url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/79f926146421089.62b06fe84d11f.png'); background-size: cover;">
+
+                                        </div>
+                                    </a>
+
+
+
+                                    <div class="pt-5 w-full flex justify-center">
+
+                                        <a href="branding.html"
+                                            style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                                            class="text-white rotacao animated-fast zoomIn w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                                            Ver mais</a>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div
+                                class="ftga dnone  px-2 justify-around md:items-center w-full pt-8 pb-12 flex flex-col lg:flex-row ">
+
+
+
+
+                                <div
+                                    class="flex space-x-2 pt-5 space-y-2 items-center flex-wrap lg:px-20  justify-center">
+                                    <div>
+                                        <h1 class="text-white text-4xl ">Sessão de cobertura de eventos - Em construção
+                                        </h1>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        data-name="Layer 1" width="743.70364" height="416.5"
+                                        viewBox="0 0 743.70364 416.5">
+                                        <path
+                                            d="M743.934,373.90525H729.79831a1.81781,1.81781,0,0,1-1.81577-1.64688l-2.82949-29.00177h23.42618L745.74975,372.258A1.81784,1.81784,0,0,1,743.934,373.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M748.54182,346.90525H725.19047a1.82648,1.82648,0,0,1-1.82433-1.82433v-4.37838a1.82647,1.82647,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82648,1.82648,0,0,1,748.54182,346.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path d="M578.54867,342.75h-56v-17c17.6958-12.31482,33.37451-11.24438,54,1Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="281.433 402.957 269.173 402.956 267.34 355.668 281.435 355.669 281.433 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M512.70726,656.59064l-39.53051-.00146v-.5a15.38605,15.38605,0,0,1,15.38647-15.38624h.001l24.1438.001Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <polygon
+                                            points="350.486 402.957 362.746 402.956 364.579 355.668 350.484 355.669 350.486 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M575.50745,640.70392l24.1438-.001h.001a15.38605,15.38605,0,0,1,15.38647,15.38624v.5l-39.53051.00146Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M578.9566,638.646a4.52007,4.52007,0,0,1-4.394-3.52247L544.17608,502.58446a1.45735,1.45735,0,0,0-1.46411-1.17383h-.00757a1.45832,1.45832,0,0,0-1.4602,1.18848L513.33966,634.24462a4.52164,4.52164,0,0,1-4.40235,3.5664H495.64459a4.50015,4.50015,0,0,1-4.49219-4.76562l9.90088-166.85547,3.98413-1.17871.07471.001,78.25806.68457,16.66748,166.67187a4.49788,4.49788,0,0,1-4.11646,4.92188l-16.604,1.34082Q579.13593,638.646,578.9566,638.646Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <circle cx="318.49104" cy="45.97086" r="24.56103" fill="#ffb8b8" />
+                                        <path
+                                            d="M531.59308,484.48388a42.39306,42.39306,0,0,1-12.72754-1.791,28.09708,28.09708,0,0,1-17.03809-14.375,4.50533,4.50533,0,0,1-.335-3.35449c2.70874-9.24512,15.79858-57.30078,7.44678-95.50293a40.48488,40.48488,0,0,1,5.75512-31.11426,39.97674,39.97674,0,0,1,25.927-17.43848l.00024-.001c1.38525-.27051,2.77808-.49219,4.13916-.66016a39.83567,39.83567,0,0,1,32.25781,10.61328,40.82033,40.82033,0,0,1,12.81568,32.36035l-6.41895,103.00391a4.46,4.46,0,0,1-2.398,3.70313C573.62481,473.80126,551.41778,484.48388,531.59308,484.48388Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M574.38563,269.64169A30.15573,30.15573,0,0,0,541.33294,251.058l7.744,6.2578c-9.62156.324-19.74953-.36491-26.61937,6.37933,2.18707-.06067,5.05355,4.61731,7.24062,4.55664-4.08894.08087-7.79673,2.95387-9.60282,6.62321a18.86524,18.86524,0,0,0-1.114,11.99709c.80759,4.00921,6.96813,13.40164,8.62633,17.14011-.28515-9.77015,18.94922-33.07441,28.3418-30.64234a25.77238,25.77238,0,0,0-11.90045,9.03527A34.90423,34.90423,0,0,1,564.75,279.01807a14.64993,14.64993,0,0,0,4.935.27623,6.02513,6.02513,0,0,0,3.57206-9.62851Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M529.90121,478.29883a4.50354,4.50354,0,0,1-1.802-.38037l-46.60059-20.34033a4.47019,4.47019,0,0,1-2.55322-5.27686l30.84985-116.53906a16.86544,16.86544,0,0,1,20.94068-11.90332l12.33544,3.5205-8.68383,146.68067a4.51257,4.51257,0,0,1-2.146,3.56982A4.46616,4.46616,0,0,1,529.90121,478.29883Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M616.14877,452.3l-2.0503-7.73-2.96972-11.24-1.43018-5.39-2.96972-11.21-21.43018-80.97a16.84727,16.84727,0,0,0-20.93994-11.9l-12.33008,3.52,6.10986,103.17.63037,10.77.39991,6.79v.01l.63964,10.71.9004,15.23a4.53042,4.53042,0,0,0,4.48974,4.24,4.58256,4.58256,0,0,0,1.80029-.38l46.59961-20.34A4.46627,4.46627,0,0,0,616.14877,452.3Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="381.55 186.19 330.621 199.57 329.99 188.8 378.581 174.98 381.55 186.19"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="385.95 202.82 331.66 217.08 331.021 206.37 331.021 206.36 382.981 191.58 385.95 202.82"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="308.181 191.12 307.55 201.69 257.601 186.81 260.53 175.75 308.181 191.12"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="307.14 208.65 256.17 192.2 253.24 203.29 306.52 219.16 307.14 208.65"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M485.20719,461.454a10.7427,10.7427,0,0,0,7.04354-14.89081l23.962-75.22559-16.99143-3.55858-21.96889,73.75316a10.80091,10.80091,0,0,0,7.95476,19.92182Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M516.87787,334.35575h0c4.879.4977,7.62331,5.98353,6.41025,12.81414L517.467,379.94827c-.43637,2.45712-2.45848,4.40264-4.13928,3.98249l-19.69048-4.922c-1.51517-.37875-2.07319-2.53134-1.21458-4.68526L504.24337,344.67C506.81048,338.23017,512.14754,333.87323,516.87787,334.35575Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M546.54867,241.75h0a31.99347,31.99347,0,0,1,31.97461,31h6.02539a2.00006,2.00006,0,0,1,2,2v8a2.00006,2.00006,0,0,1-2,2h-68a2.00006,2.00006,0,0,1-2-2v-9.00006A31.99981,31.99981,0,0,1,546.54867,241.75Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M550.37241,439.55485H536.23674A1.8178,1.8178,0,0,1,534.421,437.908l-2.82948-29.00177h23.42617l-2.82948,29.00142A1.81783,1.81783,0,0,1,550.37241,439.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M554.98025,412.55485H531.6289a1.82648,1.82648,0,0,1-1.82433-1.82432v-4.37838a1.82648,1.82648,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82647,1.82647,0,0,1,554.98025,412.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M543.60787,424.00154a10.52648,10.52648,0,0,1,1.62647.31919l37.64605-32.28411-2.20057-11.84534,17.44265-5.65757L604.056,395.125a8,8,0,0,1-3.40935,8.97531l-47.67746,30.1704a10.49709,10.49709,0,1,1-9.36135-10.26914Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M582.97837,337.06325h0c5.21164-1.45893,10.4192,2.50789,12.16411,9.26592l8.3734,32.43014c.62768,2.431-.59144,5.01448-2.49556,5.28836l-22.30669,3.20857c-1.71648.2469-3.22884-1.51345-3.29175-3.8315l-.8661-31.9132C574.3677,344.58095,577.92556,338.47772,582.97837,337.06325Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M882.81118,544.22005a167.50624,167.50624,0,0,1-24.0754-44.93174,4.30257,4.30257,0,0,1,2.03179-5.17937l35.14526-18.83159a4.24661,4.24661,0,0,1,3.72552-.15124,4.31917,4.31917,0,0,1,2.46132,2.884,102.32827,102.32827,0,0,0,22.44563,41.89074,4.318,4.318,0,0,1,1.03823,3.64653,4.2466,4.2466,0,0,1-2.18939,3.01811L888.24888,545.3971A4.30257,4.30257,0,0,1,882.81118,544.22005Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M885.20949,542.41789a1.29855,1.29855,0,0,0,1.62208.335l35.1455-18.832a1.24595,1.24595,0,0,0,.65259-.897,1.31806,1.31806,0,0,0-.32495-1.12793,105.34006,105.34006,0,0,1-23.10693-43.125,1.31862,1.31862,0,0,0-.75806-.895,1.24691,1.24691,0,0,0-1.11035.0459l-35.14478,18.83154a1.29832,1.29832,0,0,0-.61963,1.53711,164.50739,164.50739,0,0,0,23.64453,44.12744Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#fff" />
+                                        <path
+                                            d="M898.22008,502.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,898.22008,502.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M905.22008,515.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,905.22008,515.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M860.32682,504.3196a10.74267,10.74267,0,0,1-2.06222-16.343l-8.0725-114.55784,23.253,2.25508.63868,112.18666a10.80091,10.80091,0,0,1-13.757,16.45913Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M855.45584,411.91175a4.48168,4.48168,0,0,1-1.85871-3.40066L851.89328,377.635a12.39862,12.39862,0,0,1,24.34642-3.92684l7.48456,27.6049a4.50507,4.50507,0,0,1-3.16561,5.52077L859.268,412.60634A4.48292,4.48292,0,0,1,855.45584,411.91175Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="587.676 403.408 575.416 403.408 569.584 356.12 587.678 356.12 587.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M566.65909,399.90461H590.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H551.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,566.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <polygon
+                                            points="633.676 403.408 621.416 403.408 615.584 356.12 633.678 356.12 633.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M612.65909,399.90461H636.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H597.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,612.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <path
+                                            d="M815.245,621.33534l-13.49634-.64355a4.499,4.499,0,0,1-4.28587-4.46289c-3.5581-54.91919-8.48584-113.80722-.94189-136.55664a4.50108,4.50108,0,0,1,5.14646-4.48535l53.99366,7.83789a4.47383,4.47383,0,0,1,3.85353,4.41992c6.89356,26.93641,7.20508,75.7819,6.94434,126.53418a4.5005,4.5005,0,0,1-4.5,4.53418h-14.55a4.47888,4.47888,0,0,1-4.44531-3.80078l-8.977-57.06739a3.5,3.5,0,0,0-6.93287.12793l-7.12622,59.60254a4.5171,4.5171,0,0,1-4.46875,3.96582Q815.35245,621.3412,815.245,621.33534Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M824.746,487.45058c-11.89942-6.61133-21.197-8.34863-25.67993-8.7959a4.41807,4.41807,0,0,1-3.05347-1.67285,4.47791,4.47791,0,0,1-.93115-3.40137l12.9375-96.05078a33.21915,33.21915,0,0,1,19.36352-25.957,32.30589,32.30589,0,0,1,31.39551,2.46094q.665.44238,1.30518.90332a33.17817,33.17817,0,0,1,12.63647,34.57324c-7.93359,32.45508-10.65869,85.66211-11.12451,95.999a4.46546,4.46546,0,0,1-2.918,4.00489,45.085,45.085,0,0,1-15.22583,2.71093A38.12459,38.12459,0,0,1,824.746,487.45058Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <circle cx="607.41949" cy="72.21977" r="24.56103" fill="#a0616a" />
+                                        <path
+                                            d="M852.94827,333.40134c-4.582,4.88078-13.09132,2.26066-13.68835-4.40717a8.05556,8.05556,0,0,1,.01013-1.5557c.30827-2.95357,2.01461-5.635,1.60587-8.7536a4.59041,4.59041,0,0,0-.8401-2.14891c-3.65125-4.88934-12.22228,2.18687-15.6682-2.2393-2.113-2.714.3708-6.98712-1.25066-10.02051-2.14-4.00357-8.47881-2.0286-12.45387-4.22115-4.42275-2.43949-4.15822-9.22525-1.24686-13.35269,3.55052-5.0336,9.77572-7.71952,15.92335-8.106612.25292,1.27475,17.9923,3.51145c6.52108,2.54134,12.98768,6.05351,17.00066,11.78752,4.88022,6.97317,5.34986,16.34794,2.90917,24.50175C861.757,323.35646,856.68993,329.41566,852.94827,333.40134Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M872.39877,357.28c-.43018-2.02-4.12012-4.78-9.39991-7.03a58.13527,58.13527,0,0,0-52.5,4.5,2.47961,2.47961,0,0,0-2.29,1.95l-17.76026,78.55-2.31006,10.23-1.52978,6.77-2.31006,10.2-1.23,5.45a2.5078,2.5078,0,0,0,2.22021,3.05l76.68995,6.62c.06982,0,.1499.01.21972.01a2.50026,2.50026,0,0,0,2.48-2.34l.73-11.11.78028-11.88.33984-5.15.77-11.85,5.10986-77.84V357.34Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M746.564,362.22439a10.52617,10.52617,0,0,1,.23929,1.64013l42.95745,24.782,10.44142-6.01094,11.13116,14.57228L788.99613,413.1284l-49.00791-38.66268a10.4958,10.4958,0,1,1,6.57573-12.24133Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M791.295,386.53919a4.48166,4.48166,0,0,1,1.29315-3.65337l21.8634-21.86849a12.39862,12.39862,0,0,1,19.16808,15.51623l-15.57,23.9922a4.50506,4.50506,0,0,1-6.22447,1.3251l-18.5043-12.00853A4.48289,4.48289,0,0,1,791.295,386.53919Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="639.15 193.5 638.38 205.35 559.99 203.73 562.3 193.5 639.15 193.5"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="638.041 210.5 637.26 222.38 556.15 220.7 558.461 210.5 638.041 210.5"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M836.04867,266.25h0a31.99347,31.99347,0,0,0-31.97461,31h-6.02539a2.00006,2.00006,0,0,0-2,2v8a2.00006,2.00006,0,0,0,2,2h68a2.00006,2.00006,0,0,0,2-2v-9.00006A31.99981,31.99981,0,0,0,836.04867,266.25Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M336.26259,584.80615a39.063,39.063,0,0,1-37.72112-6.64474c-13.212-11.08918-17.35435-29.35854-20.72485-46.275l-9.96924-50.0356L288.719,496.22223c15.00965,10.33508,30.35744,21.00126,40.75007,35.971134.929,35.40506,6.57885,51.60314"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M334.47849,645.38466c2.11249-15.38745,4.28468-30.97255,2.80288-46.52494-1.316-13.81219-5.52988-27.30283-14.10882-38.36422a63.81942,63.81942,0,0,0-16.37384-14.83745c-1.63739-1.03352-3.14442,1.56139-1.51416,2.59041a60.67173,60.67173,0,0,1,23.99889,28.9564c5.22489,13.28947,6.06393,27.77612,5.16355,41.89337-.54449,8.53723-1.69847,17.01851-2.86134,25.48891a1.55429,1.55429,0,0,0,1.04766,1.84518,1.50915,1.50915,0,0,0,1.84518-1.04766Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path
+                                            d="M314.13137,618.15614a28.7553,28.7553,0,0,1-25.05474,12.93134c-12.68315-.60209-23.25684-9.45412-32.77516-17.85807l-28.15329-24.85722,18.63281-.8917c13.39961-.64126,27.14492-1.23941,39.90759,2.89278s24.53307,14.07691,26.8668,27.2873"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M340.44853,654.23018c-10.16773-17.99115-21.9614-37.98626-43.03473-44.377a48.022,48.022,0,0,0-18.10109-1.869c-1.9218.1657-1.44191,3.1281.4764,2.96269a44.61387,44.61387,0,0,1,28.88649,7.64231c8.1449,5.544,14.48659,13.25166,19.85415,21.42526,3.28778,5.00658,6.23277,10.22556,9.17833,15.43753.94133,1.66564,3.69278.46329,2.74045-1.22181Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path d="M970.85182,658.25h-712a1,1,0,0,1,0-2h712a1,1,0,0,1,0,2Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                    </svg>
+
+
+                                </div>
+
+
+                            </div>
+                            <div
+                                class="others dnone  px-2 justify-around md:items-center w-full pt-8 pb-12 flex flex-col lg:flex-row">
+
+                                <div
+                                    class="flex space-x-2 pt-5 space-y-2 items-center flex-wrap lg:px-20  justify-center">
+                                    <div>
+                                        <h1 class="text-white text-4xl ">Em construção</h1>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        data-name="Layer 1" width="743.70364" height="416.5"
+                                        viewBox="0 0 743.70364 416.5">
+                                        <path
+                                            d="M743.934,373.90525H729.79831a1.81781,1.81781,0,0,1-1.81577-1.64688l-2.82949-29.00177h23.42618L745.74975,372.258A1.81784,1.81784,0,0,1,743.934,373.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M748.54182,346.90525H725.19047a1.82648,1.82648,0,0,1-1.82433-1.82433v-4.37838a1.82647,1.82647,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82648,1.82648,0,0,1,748.54182,346.90525Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path d="M578.54867,342.75h-56v-17c17.6958-12.31482,33.37451-11.24438,54,1Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="281.433 402.957 269.173 402.956 267.34 355.668 281.435 355.669 281.433 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M512.70726,656.59064l-39.53051-.00146v-.5a15.38605,15.38605,0,0,1,15.38647-15.38624h.001l24.1438.001Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <polygon
+                                            points="350.486 402.957 362.746 402.956 364.579 355.668 350.484 355.669 350.486 402.957"
+                                            fill="#ffb8b8" />
+                                        <path
+                                            d="M575.50745,640.70392l24.1438-.001h.001a15.38605,15.38605,0,0,1,15.38647,15.38624v.5l-39.53051.00146Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M578.9566,638.646a4.52007,4.52007,0,0,1-4.394-3.52247L544.17608,502.58446a1.45735,1.45735,0,0,0-1.46411-1.17383h-.00757a1.45832,1.45832,0,0,0-1.4602,1.18848L513.33966,634.24462a4.52164,4.52164,0,0,1-4.40235,3.5664H495.64459a4.50015,4.50015,0,0,1-4.49219-4.76562l9.90088-166.85547,3.98413-1.17871.07471.001,78.25806.68457,16.66748,166.67187a4.49788,4.49788,0,0,1-4.11646,4.92188l-16.604,1.34082Q579.13593,638.646,578.9566,638.646Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <circle cx="318.49104" cy="45.97086" r="24.56103" fill="#ffb8b8" />
+                                        <path
+                                            d="M531.59308,484.48388a42.39306,42.39306,0,0,1-12.72754-1.791,28.09708,28.09708,0,0,1-17.03809-14.375,4.50533,4.50533,0,0,1-.335-3.35449c2.70874-9.24512,15.79858-57.30078,7.44678-95.50293a40.48488,40.48488,0,0,1,5.75512-31.11426,39.97674,39.97674,0,0,1,25.927-17.43848l.00024-.001c1.38525-.27051,2.77808-.49219,4.13916-.66016a39.83567,39.83567,0,0,1,32.25781,10.61328,40.82033,40.82033,0,0,1,12.81568,32.36035l-6.41895,103.00391a4.46,4.46,0,0,1-2.398,3.70313C573.62481,473.80126,551.41778,484.48388,531.59308,484.48388Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M574.38563,269.64169A30.15573,30.15573,0,0,0,541.33294,251.058l7.744,6.2578c-9.62156.324-19.74953-.36491-26.61937,6.37933,2.18707-.06067,5.05355,4.61731,7.24062,4.55664-4.08894.08087-7.79673,2.95387-9.60282,6.62321a18.86524,18.86524,0,0,0-1.114,11.99709c.80759,4.00921,6.96813,13.40164,8.62633,17.14011-.28515-9.77015,18.94922-33.07441,28.3418-30.64234a25.77238,25.77238,0,0,0-11.90045,9.03527A34.90423,34.90423,0,0,1,564.75,279.01807a14.64993,14.64993,0,0,0,4.935.27623,6.02513,6.02513,0,0,0,3.57206-9.62851Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M529.90121,478.29883a4.50354,4.50354,0,0,1-1.802-.38037l-46.60059-20.34033a4.47019,4.47019,0,0,1-2.55322-5.27686l30.84985-116.53906a16.86544,16.86544,0,0,1,20.94068-11.90332l12.33544,3.5205-8.68383,146.68067a4.51257,4.51257,0,0,1-2.146,3.56982A4.46616,4.46616,0,0,1,529.90121,478.29883Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M616.14877,452.3l-2.0503-7.73-2.96972-11.24-1.43018-5.39-2.96972-11.21-21.43018-80.97a16.84727,16.84727,0,0,0-20.93994-11.9l-12.33008,3.52,6.10986,103.17.63037,10.77.39991,6.79v.01l.63964,10.71.9004,15.23a4.53042,4.53042,0,0,0,4.48974,4.24,4.58256,4.58256,0,0,0,1.80029-.38l46.59961-20.34A4.46627,4.46627,0,0,0,616.14877,452.3Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <polygon
+                                            points="381.55 186.19 330.621 199.57 329.99 188.8 378.581 174.98 381.55 186.19"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="385.95 202.82 331.66 217.08 331.021 206.37 331.021 206.36 382.981 191.58 385.95 202.82"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="308.181 191.12 307.55 201.69 257.601 186.81 260.53 175.75 308.181 191.12"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="307.14 208.65 256.17 192.2 253.24 203.29 306.52 219.16 307.14 208.65"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M485.20719,461.454a10.7427,10.7427,0,0,0,7.04354-14.89081l23.962-75.22559-16.99143-3.55858-21.96889,73.75316a10.80091,10.80091,0,0,0,7.95476,19.92182Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M516.87787,334.35575h0c4.879.4977,7.62331,5.98353,6.41025,12.81414L517.467,379.94827c-.43637,2.45712-2.45848,4.40264-4.13928,3.98249l-19.69048-4.922c-1.51517-.37875-2.07319-2.53134-1.21458-4.68526L504.24337,344.67C506.81048,338.23017,512.14754,333.87323,516.87787,334.35575Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M546.54867,241.75h0a31.99347,31.99347,0,0,1,31.97461,31h6.02539a2.00006,2.00006,0,0,1,2,2v8a2.00006,2.00006,0,0,1-2,2h-68a2.00006,2.00006,0,0,1-2-2v-9.00006A31.99981,31.99981,0,0,1,546.54867,241.75Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M550.37241,439.55485H536.23674A1.8178,1.8178,0,0,1,534.421,437.908l-2.82948-29.00177h23.42617l-2.82948,29.00142A1.81783,1.81783,0,0,1,550.37241,439.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M554.98025,412.55485H531.6289a1.82648,1.82648,0,0,1-1.82433-1.82432v-4.37838a1.82648,1.82648,0,0,1,1.82433-1.82432h23.35135a1.82647,1.82647,0,0,1,1.82432,1.82432v4.37838A1.82647,1.82647,0,0,1,554.98025,412.55485Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M543.60787,424.00154a10.52648,10.52648,0,0,1,1.62647.31919l37.64605-32.28411-2.20057-11.84534,17.44265-5.65757L604.056,395.125a8,8,0,0,1-3.40935,8.97531l-47.67746,30.1704a10.49709,10.49709,0,1,1-9.36135-10.26914Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ffb8b8" />
+                                        <path
+                                            d="M582.97837,337.06325h0c5.21164-1.45893,10.4192,2.50789,12.16411,9.26592l8.3734,32.43014c.62768,2.431-.59144,5.01448-2.49556,5.28836l-22.30669,3.20857c-1.71648.2469-3.22884-1.51345-3.29175-3.8315l-.8661-31.9132C574.3677,344.58095,577.92556,338.47772,582.97837,337.06325Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <path
+                                            d="M882.81118,544.22005a167.50624,167.50624,0,0,1-24.0754-44.93174,4.30257,4.30257,0,0,1,2.03179-5.17937l35.14526-18.83159a4.24661,4.24661,0,0,1,3.72552-.15124,4.31917,4.31917,0,0,1,2.46132,2.884,102.32827,102.32827,0,0,0,22.44563,41.89074,4.318,4.318,0,0,1,1.03823,3.64653,4.2466,4.2466,0,0,1-2.18939,3.01811L888.24888,545.3971A4.30257,4.30257,0,0,1,882.81118,544.22005Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M885.20949,542.41789a1.29855,1.29855,0,0,0,1.62208.335l35.1455-18.832a1.24595,1.24595,0,0,0,.65259-.897,1.31806,1.31806,0,0,0-.32495-1.12793,105.34006,105.34006,0,0,1-23.10693-43.125,1.31862,1.31862,0,0,0-.75806-.895,1.24691,1.24691,0,0,0-1.11035.0459l-35.14478,18.83154a1.29832,1.29832,0,0,0-.61963,1.53711,164.50739,164.50739,0,0,0,23.64453,44.12744Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#fff" />
+                                        <path
+                                            d="M898.22008,502.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,898.22008,502.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M905.22008,515.152l-19.14161,8.44958a3.00327,3.00327,0,0,1-3.956-1.533l-.47343-1.07252a3.00327,3.00327,0,0,1,1.533-3.956l19.1416-8.44958a3.00328,3.00328,0,0,1,3.956,1.533l.47344,1.07252A3.00328,3.00328,0,0,1,905.22008,515.152Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                        <path
+                                            d="M860.32682,504.3196a10.74267,10.74267,0,0,1-2.06222-16.343l-8.0725-114.55784,23.253,2.25508.63868,112.18666a10.80091,10.80091,0,0,1-13.757,16.45913Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M855.45584,411.91175a4.48168,4.48168,0,0,1-1.85871-3.40066L851.89328,377.635a12.39862,12.39862,0,0,1,24.34642-3.92684l7.48456,27.6049a4.50507,4.50507,0,0,1-3.16561,5.52077L859.268,412.60634A4.48292,4.48292,0,0,1,855.45584,411.91175Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="587.676 403.408 575.416 403.408 569.584 356.12 587.678 356.12 587.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M566.65909,399.90461H590.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H551.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,566.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <polygon
+                                            points="633.676 403.408 621.416 403.408 615.584 356.12 633.678 356.12 633.676 403.408"
+                                            fill="#a0616a" />
+                                        <path
+                                            d="M612.65909,399.90461H636.303a0,0,0,0,1,0,0v14.88687a0,0,0,0,1,0,0H597.77223a0,0,0,0,1,0,0v0A14.88686,14.88686,0,0,1,612.65909,399.90461Z"
+                                            fill="#2f2e41" />
+                                        <path
+                                            d="M815.245,621.33534l-13.49634-.64355a4.499,4.499,0,0,1-4.28587-4.46289c-3.5581-54.91919-8.48584-113.80722-.94189-136.55664a4.50108,4.50108,0,0,1,5.14646-4.48535l53.99366,7.83789a4.47383,4.47383,0,0,1,3.85353,4.41992c6.89356,26.93641,7.20508,75.7819,6.94434,126.53418a4.5005,4.5005,0,0,1-4.5,4.53418h-14.55a4.47888,4.47888,0,0,1-4.44531-3.80078l-8.977-57.06739a3.5,3.5,0,0,0-6.93287.12793l-7.12622,59.60254a4.5171,4.5171,0,0,1-4.46875,3.96582Q815.35245,621.3412,815.245,621.33534Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M824.746,487.45058c-11.89942-6.61133-21.197-8.34863-25.67993-8.7959a4.41807,4.41807,0,0,1-3.05347-1.67285,4.47791,4.47791,0,0,1-.93115-3.40137l12.9375-96.05078a33.21915,33.21915,0,0,1,19.36352-25.957,32.30589,32.30589,0,0,1,31.39551,2.46094q.665.44238,1.30518.90332a33.17817,33.17817,0,0,1,12.63647,34.57324c-7.93359,32.45508-10.65869,85.66211-11.12451,95.999a4.46546,4.46546,0,0,1-2.918,4.00489,45.085,45.085,0,0,1-15.22583,2.71093A38.12459,38.12459,0,0,1,824.746,487.45058Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <circle cx="607.41949" cy="72.21977" r="24.56103" fill="#a0616a" />
+                                        <path
+                                            d="M852.94827,333.40134c-4.582,4.88078-13.09132,2.26066-13.68835-4.40717a8.05556,8.05556,0,0,1,.01013-1.5557c.30827-2.95357,2.01461-5.635,1.60587-8.7536a4.59041,4.59041,0,0,0-.8401-2.14891c-3.65125-4.88934-12.22228,2.18687-15.6682-2.2393-2.113-2.714.3708-6.98712-1.25066-10.02051-2.14-4.00357-8.47881-2.0286-12.45387-4.22115-4.42275-2.43949-4.15822-9.22525-1.24686-13.35269,3.55052-5.0336,9.77572-7.71952,15.92335-8.106612.25292,1.27475,17.9923,3.51145c6.52108,2.54134,12.98768,6.05351,17.00066,11.78752,4.88022,6.97317,5.34986,16.34794,2.90917,24.50175C861.757,323.35646,856.68993,329.41566,852.94827,333.40134Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#2f2e41" />
+                                        <path
+                                            d="M872.39877,357.28c-.43018-2.02-4.12012-4.78-9.39991-7.03a58.13527,58.13527,0,0,0-52.5,4.5,2.47961,2.47961,0,0,0-2.29,1.95l-17.76026,78.55-2.31006,10.23-1.52978,6.77-2.31006,10.2-1.23,5.45a2.5078,2.5078,0,0,0,2.22021,3.05l76.68995,6.62c.06982,0,.1499.01.21972.01a2.50026,2.50026,0,0,0,2.48-2.34l.73-11.11.78028-11.88.33984-5.15.77-11.85,5.10986-77.84V357.34Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M746.564,362.22439a10.52617,10.52617,0,0,1,.23929,1.64013l42.95745,24.782,10.44142-6.01094,11.13116,14.57228L788.99613,413.1284l-49.00791-38.66268a10.4958,10.4958,0,1,1,6.57573-12.24133Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a0616a" />
+                                        <path
+                                            d="M791.295,386.53919a4.48166,4.48166,0,0,1,1.29315-3.65337l21.8634-21.86849a12.39862,12.39862,0,0,1,19.16808,15.51623l-15.57,23.9922a4.50506,4.50506,0,0,1-6.22447,1.3251l-18.5043-12.00853A4.48289,4.48289,0,0,1,791.295,386.53919Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#3f3d56" />
+                                        <polygon
+                                            points="639.15 193.5 638.38 205.35 559.99 203.73 562.3 193.5 639.15 193.5"
+                                            fill="#ccc" />
+                                        <polygon
+                                            points="638.041 210.5 637.26 222.38 556.15 220.7 558.461 210.5 638.041 210.5"
+                                            fill="#ccc" />
+                                        <path
+                                            d="M836.04867,266.25h0a31.99347,31.99347,0,0,0-31.97461,31h-6.02539a2.00006,2.00006,0,0,0-2,2v8a2.00006,2.00006,0,0,0,2,2h68a2.00006,2.00006,0,0,0,2-2v-9.00006A31.99981,31.99981,0,0,0,836.04867,266.25Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#a60a0a" />
+                                        <path
+                                            d="M336.26259,584.80615a39.063,39.063,0,0,1-37.72112-6.64474c-13.212-11.08918-17.35435-29.35854-20.72485-46.275l-9.96924-50.0356L288.719,496.22223c15.00965,10.33508,30.35744,21.00126,40.75007,35.971134.929,35.40506,6.57885,51.60314"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M334.47849,645.38466c2.11249-15.38745,4.28468-30.97255,2.80288-46.52494-1.316-13.81219-5.52988-27.30283-14.10882-38.36422a63.81942,63.81942,0,0,0-16.37384-14.83745c-1.63739-1.03352-3.14442,1.56139-1.51416,2.59041a60.67173,60.67173,0,0,1,23.99889,28.9564c5.22489,13.28947,6.06393,27.77612,5.16355,41.89337-.54449,8.53723-1.69847,17.01851-2.86134,25.48891a1.55429,1.55429,0,0,0,1.04766,1.84518,1.50915,1.50915,0,0,0,1.84518-1.04766Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path
+                                            d="M314.13137,618.15614a28.7553,28.7553,0,0,1-25.05474,12.93134c-12.68315-.60209-23.25684-9.45412-32.77516-17.85807l-28.15329-24.85722,18.63281-.8917c13.39961-.64126,27.14492-1.23941,39.90759,2.89278s24.53307,14.07691,26.8668,27.2873"
+                                            transform="translate(-228.14818 -241.75)" fill="#e6e6e6" />
+                                        <path
+                                            d="M340.44853,654.23018c-10.16773-17.99115-21.9614-37.98626-43.03473-44.377a48.022,48.022,0,0,0-18.10109-1.869c-1.9218.1657-1.44191,3.1281.4764,2.96269a44.61387,44.61387,0,0,1,28.88649,7.64231c8.1449,5.544,14.48659,13.25166,19.85415,21.42526,3.28778,5.00658,6.23277,10.22556,9.17833,15.43753.94133,1.66564,3.69278.46329,2.74045-1.22181Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#f2f2f2" />
+                                        <path d="M970.85182,658.25h-712a1,1,0,0,1,0-2h712a1,1,0,0,1,0,2Z"
+                                            transform="translate(-228.14818 -241.75)" fill="#ccc" />
+                                    </svg>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
-        </div> <!-- mobile menu -->
-        <div class="mobile-menu mt-5 pt-2 border-t text-white hidden md:hidden">  
-            <a class="cursor-pointer block py-2 px-4 text-md font-bold border border-transparent hover:bg-red-50 hover:border-red-200 rounded-lg"  onclick="window.scrollTo({  top: 0, behavior: 'smooth'  });">Home</a> <a
-            onclick="window.scrollTo({  top: 1320, behavior: 'smooth'  });" class="cursor-pointer block rounded-lg py-2 px-4 text-md font-bold border border-transparent hover:bg-red-50 hover:border-red-200">Serviços</a> <a
-            onclick="window.scrollTo({  top: 2550, behavior: 'smooth'  });" class="cursor-pointer block rounded-lg py-2 px-4 font-bold text-md border border-transparent hover:bg-red-50 hover:border-red-200">Sobre</a> <a
-            onclick="window.scrollTo({  top: 4100, behavior: 'smooth'  });" class="cursor-pointer block rounded-lg py-2 px-4 font-bold text-md border border-transparent hover:bg-red-50 hover:border-red-200">Contactar</a> </div>
-    </nav>
 
 
-<!-- <div style=" background: linear-gradient(to left, #d93030c7, #040404),url(https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);" class="sm:px-10 pt-96 pb-16">
-
-    <h1 class="font-bold text-6xl text-center text-white">Desenvolvimento de Websites</h1>
-<div class="text-2xl flex justify-center text-center font-light text-gray-100 mt-2 "><span class="w-2/4">
-    Tenha uma página WEB, acessível a todos, para mostrar ao mundo o seu produto!
-</div>     
-</div> -->
-
-<div style="background-size: cover !important; background: linear-gradient(to left, #d93030c7, #040404),url(https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);" class="sm:px-10 flex flex-col items-center pt-80 pb-16">
-   <div class=" animated-fast fadeInUp text-center"> <i class="fa fa-code w-full text-white" style="font-size: 5em;"></i>
-        <h1 class="font-bold text-5xl md:text-6xl text-center text-white txt">Desenvolvimento de Websites</h1>
-        <div class="text-2xl flex justify-center text-center font-light text-gray-100 mt-2 "><span class="w-2/3">
-            Tenha uma página web, acessível a todos, para mostrar ao mundo o seu produto!
-        </div>   
-    </div>
-</div>
-
-
-<div class="whats-button">
-    <a class="pulse-button" href="https://api.whatsapp.com/send?phone=5548999910796" target="_blank" data-tool="Fale no WhatsApp!">
-    <i class="fab fa-whatsapp"></i></a></div>
-
-
-
-<div class="md:px-16 px-4 mb-10 py-16 bg-gray-50" style="background: url('https://img.freepik.com/free-vector/worldwide-connection-gray-background-illustration-vector_53876-61769.jpg?t=st=1649680565~exp=1649681165~hmac=b9051d353a97a1eec218ccd846153302d04fdde885da2e5c584247e6a2f26a9a&w=826'); background-size: cover;">
-    <h1 style="font-size: 0.8em;">DESENVOLVIMENTO WEB</h1>
-    <h1 class="font-bold text-4xl" style="margin-bottom: 30px; line-height: 1.2em; color: #333333;"> CATEGORIA DE SITES</h1>
-   <div>
-            <div class="mt-14 flex justify-start md:justify-center flex-wrap">
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fas fa-cart-plus"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">E-commerce</h1> <p>Leve o seu negócio para o digital. Adquira mais vendas, expansão, competitividade e menos despesas. Alcance melhor o seu público através internet.</p></div></div>
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fas fa-user"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">Blogs</h1> <p>Desenvolva um diário na Internet para sí e para sua empresa. Mostre para o mundo as suas actividades, conquistas e crie um meio entre Você e o seu cliente.</p></div></div>
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fa fa-home"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">Institucionais</h1> <p>Deixe seu público mais a par daquilo que sua empresa tem para oferecer a ele. Desde os serviços ou produtos, contactos e mais caso reais para passar a segurança que precisa.</p></div></div>
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fas fa-user"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">Landing Page</h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae suscipit necessitatibus natus eos ipsam iusto, obcaecati ea id.</p></div></div>
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fas fa-user"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">Portfólios</h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae suscipit necessitatibus natus eos ipsam iusto, obcaecati ea id.</p></div></div>
-                <div style="backdrop-filter: blur(20px);" class="mb-4 p-2 border shadow-xl hvr-float bg-white bg-opacity-75 rounded-2xl mr-2 flex items-start w-full md:w-96"> <span class="py-2 px-5 text-red-700 rounded-lg"><i class="fas fa-user"></i></span> <div class="px-4"><h1 class="font-semibold text-xl">Hotsites</h1> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae suscipit necessitatibus natus eos ipsam iusto, obcaecati ea id.</p></div></div>
-             </div>
-        </div>
-</div>
-
-<div class="px-10 bg-red-50 flex items-center flex-col mt-80 pt-16 pb-20">
-    <img src="https://fysa.com.br/wp-content/uploads/2021/10/Design-sem-nome-2-1024x576.png" class="h-72 -mt-52" alt="">
-    <h1 class="font-bold text-center text-4xl text-red-700 mt-10" style=" line-height: 1.2em;">Como nossos sites vão ajudar o seu negócio?</h1>
-     <div class="lg:px-52 text-center mt-2 text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia aliquam exercitationem tempore incidunt! Ipsa voluptas deserunt nostrum eligendi obcaecati tenetur a ad rem, ipsum quia accusamus amet, repellendus tempora nulla.</div>
-    </div>
-
-    <div class=" px-2 md:px-24 bg-red-700 flex flex-col py-20 ">
-       <div>
-        <h1 class="font-bold text-center text-4xl text-white mt-10 mb-7" style=" line-height: 1.2em;">    
-            <span style="font-size: 4em;">0</span>
-            <br> Preocupações!
-         </h1>
-         
-         <div class="flex justify-center px-2 md:px-5 lg:px-20 xl:px-32"> 
-             <p class="font-light text-center text-3xl text-white">Temos equipe dedicada para ajudá-lo a desenvolver do "zero" toda estrutura, layout e design do seu site.</p>
-         </div>
-         
-       </div>
-
-
-<div class="mt-20">
-
-    <h1 class="font-bold text-center text-4xl text-white mt-10 mb-7" style=" line-height: 1.2em;">  
-        <div class="justify-center flex">
-            <div class="w-52 h-52" data-percent-viewport="" data-params="[{&quot;path&quot;:&quot;https:\/\/www.agenciaimma.com.br\/wp-content\/uploads\/2020\/08\/check-desenvolvimento-coluna-2-pag-site-1.json&quot;,&quot;loop&quot;:true,&quot;loop_no&quot;:&quot;&quot;,&quot;delay&quot;:&quot;0ms&quot;,&quot;direction&quot;:&quot;1&quot;,&quot;speed&quot;:&quot;1&quot;,&quot;hover&quot;:false,&quot;trigger&quot;:&quot;on_hover&quot;,&quot;scroll&quot;:&quot;on_hover&quot;,&quot;mouseout&quot;:&quot;no_action&quot;,&quot;viewport&quot;:&quot;80%&quot;}]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 796 714" width="796" height="714" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clipPath id="__lottie_element_484"><rect width="796" height="714" x="0" y="0"></rect></clipPath><clipPath id="__lottie_element_495"><path d="M0,0 L3459,0 L3459,3837 L0,3837z"></path></clipPath></defs><g clip-path="url(#__lottie_element_484)"><g clip-path="url(#__lottie_element_495)" transform="matrix(1,0,0,1,-216,-106)" opacity="1" style="display: block;"><g transform="matrix(1,0,0,1,1729.5,1918.5)" opacity="0.5" style="display: block;"><g opacity="1" transform="matrix(1.0003999471664429,0,0,0.9998999834060669,0,0)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1027.489990234375,-1672.4990234375 -1027.489990234375,-1672.4990234375"></path><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(220 38 38)" stroke-opacity="1" stroke-width="92" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1027.489990234375,-1672.4990234375 -1027.489990234375,-1672.4990234375"></path></g></g><g style="display: block;" transform="matrix(1,0,0,1,1818.5,2059.5)" opacity="0.5"><g opacity="1" transform="matrix(1.0003999471664429,0,0,0.9998999834060669,0,0)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1027.489990234375,-1672.4990234375 -1027.489990234375,-1672.4990234375"></path><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(220 38 38)" stroke-opacity="1" stroke-width="92" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1027.489990234375,-1672.4990234375 -1027.489990234375,-1672.4990234375"></path></g></g><g style="display: block;" transform="matrix(1,0,0,1,2288.5,1790.5)" opacity="0.5"><g opacity="1" transform="matrix(1.0003999471664429,0,0,0.9998999834060669,0,0)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1372.3509521484375,-1474.47705078125 -1372.3509521484375,-1474.47705078125"></path><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(220 38 38)" stroke-opacity="1" stroke-width="92" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1372.3509521484375,-1474.47705078125 -1372.3509521484375,-1474.47705078125"></path></g></g><g style="display: block;" transform="matrix(1,0,0,1,1950.5,2175.5)" opacity="0.5"><g opacity="1" transform="matrix(1.0003999471664429,0,0,0.9998999834060669,0,0)"><path fill="rgb(255,255,255)" fill-opacity="1" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1117.4539794921875,-1623.4930419921875 -1117.4539794921875,-1623.4930419921875"></path><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(220 38 38)" stroke-opacity="1" stroke-width="92" d=" M-1401.5,-1457.5 C-1401.5,-1457.5 -1117.4539794921875,-1623.4930419921875 -1117.4539794921875,-1623.4930419921875"></path></g></g><g style="display: block;" transform="matrix(0.9947498440742493,0.10233618319034576,-0.10233618319034576,0.9947498440742493,1576.3187255859375,2024.3282470703125)" opacity="1"><g opacity="1" transform="matrix(0.8567100167274475,0,0,0.8567100167274475,-819.5349731445312,-1371.64501953125)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="5" d=" M0,-9.677499771118164 C5.341012001037598,-9.677499771118164 9.677499771118164,-5.341012001037598 9.677499771118164,0 C9.677499771118164,5.341012001037598 5.341012001037598,9.677499771118164 0,9.677499771118164 C-5.341012001037598,9.677499771118164 -9.677499771118164,5.341012001037598 -9.677499771118164,0 C-9.677499771118164,-5.341012001037598 -5.341012001037598,-9.677499771118164 0,-9.677499771118164z"></path></g><g opacity="1" transform="matrix(1.4088000059127808,0,0,1.4088000059127808,-1282.948974609375,-1147.8809814453125)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="5" d=" M0,-9.677499771118164 C5.341012001037598,-9.677499771118164 9.677499771118164,-5.341012001037598 9.677499771118164,0 C9.677499771118164,5.341012001037598 5.341012001037598,9.677499771118164 0,9.677499771118164 C-5.341012001037598,9.677499771118164 -9.677499771118164,5.341012001037598 -9.677499771118164,0 C-9.677499771118164,-5.341012001037598 -5.341012001037598,-9.677499771118164 0,-9.677499771118164z"></path></g><g opacity="1" transform="matrix(1.4088000059127808,0,0,1.4088000059127808,-1151.238037109375,-1723.625)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="5" d=" M0,-9.677499771118164 C5.341012001037598,-9.677499771118164 9.677499771118164,-5.341012001037598 9.677499771118164,0 C9.677499771118164,5.341012001037598 5.341012001037598,9.677499771118164 0,9.677499771118164 C-5.341012001037598,9.677499771118164 -9.677499771118164,5.341012001037598 -9.677499771118164,0 C-9.677499771118164,-5.341012001037598 -5.341012001037598,-9.677499771118164 0,-9.677499771118164z"></path></g></g><g style="display: block;" transform="matrix(1,0,0,1,1729.5,1918.5)" opacity="1"><g opacity="1" transform="matrix(0.6436100006103516,0,0,0.6436100006103516,-1435.79296875,-1556.3709716796875)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="8" d=" M0,-9.677499771118164 C5.341012001037598,-9.677499771118164 9.677499771118164,-5.341012001037598 9.677499771118164,0 C9.677499771118164,5.341012001037598 5.341012001037598,9.677499771118164 0,9.677499771118164 C-5.341012001037598,9.677499771118164 -9.677499771118164,5.341012001037598 -9.677499771118164,0 C-9.677499771118164,-5.341012001037598 -5.341012001037598,-9.677499771118164 0,-9.677499771118164z"></path></g><g opacity="1" transform="matrix(0.6436100006103516,0,0,0.6436100006103516,-952.0289916992188,-1150.197021484375)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="8" d=" M0,-9.677499771118164 C5.341012001037598,-9.677499771118164 9.677499771118164,-5.341012001037598 9.677499771118164,0 C9.677499771118164,5.341012001037598 5.341012001037598,9.677499771118164 0,9.677499771118164 C-5.341012001037598,9.677499771118164 -9.677499771118164,5.341012001037598 -9.677499771118164,0 C-9.677499771118164,-5.341012001037598 -5.341012001037598,-9.677499771118164 0,-9.677499771118164z"></path></g></g><g style="display: block;" transform="matrix(0.9709439873695374,0.2393067479133606,-0.2393067479133606,0.9709439873695374,1295.818359375,2051.5078125)" opacity="1"><g opacity="1" transform="matrix(0,-1,1,0,843.572021484375,-2608.050048828125)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g></g><g style="display: block;" transform="matrix(0.9795190095901489,0.20135165750980377,-0.20135165750980377,0.9795190095901489,838.8951416015625,2440.8173828125)" opacity="1"><g opacity="1" transform="matrix(0,-1,1,0,843.572021484375,-2608.050048828125)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g>
-        <g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g></g><g style="display: block;" transform="matrix(0.990032970905304,0.14083558320999146,-0.14083558320999146,0.990032970905304,1471.6231689453125,2513.56689453125)" opacity="1"><g opacity="1" transform="matrix(0,-1,1,0,843.572021484375,-2608.050048828125)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="3" d=" M-894.5,-1726 C-894.5,-1726 -869.5,-1726 -869.5,-1726"></path></g></g></g><g style="display: block;" transform="matrix(1.011430025100708,0,0,1.011430025100708,388.2809143066406,354.2809143066406)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,9.718999862670898,2.7190001010894775)"><path fill="rgb(239 68 68)" fill-opacity="1" d=" M0,-177.718994140625 C98.08311462402344,-177.718994140625 177.718994140625,-98.08311462402344 177.718994140625,0 C177.718994140625,98.08311462402344 98.08311462402344,177.718994140625 0,177.718994140625 C-98.08311462402344,177.718994140625 -177.718994140625,98.08311462402344 -177.718994140625,0 C-177.718994140625,-98.08311462402344 -98.08311462402344,-177.718994140625 0,-177.718994140625z"></path><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="0" d=" M0,-177.718994140625 C98.08311462402344,-177.718994140625 177.718994140625,-98.08311462402344 177.718994140625,0 C177.718994140625,98.08311462402344 98.08311462402344,177.718994140625 0,177.718994140625 C-98.08311462402344,177.718994140625 -177.718994140625,98.08311462402344 -177.718994140625,0 C-177.718994140625,-98.08311462402344 -98.08311462402344,-177.718994140625 0,-177.718994140625z"></path></g></g><g style="display: block;" transform="matrix(0.9157700538635254,0,0,0.9157700538635254,389.0996398925781,354.541015625)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,9.718999862670898,2.7190001010894775)"><path fill="rgb(127 29 29)" fill-opacity="1" d=" M0,-177.718994140625 C98.08311462402344,-177.718994140625 177.718994140625,-98.08311462402344 177.718994140625,0 C177.718994140625,98.08311462402344 98.08311462402344,177.718994140625 0,177.718994140625 C-98.08311462402344,177.718994140625 -177.718994140625,98.08311462402344 -177.718994140625,0 C-177.718994140625,-98.08311462402344 -98.08311462402344,-177.718994140625 0,-177.718994140625z"></path><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="0" d=" M0,-177.718994140625 C98.08311462402344,-177.718994140625 177.718994140625,-98.08311462402344 177.718994140625,0 C177.718994140625,98.08311462402344 98.08311462402344,177.718994140625 0,177.718994140625 C-98.08311462402344,177.718994140625 -177.718994140625,98.08311462402344 -177.718994140625,0 C-177.718994140625,-98.08311462402344 -98.08311462402344,-177.718994140625 0,-177.718994140625z"></path></g></g><g style="display: block;" transform="matrix(1,0,0,1,396.5,357)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="18" d=" M-72,6 C-72,6 -28,49 -28,49 C-28,49 75,-54 75,-54"></path></g></g></g></svg></div>
-        </div>  
-        Resultados para o seu negócio:
-     </h1>
-
-
-     <div>
-        <!-- flex -->
-         <ul class="text-white font-light text-2xl justify-center items-center flex flex-col">
-             <li> <span class="font-bold text-3xl">1.</span> Desenvolver soluções de acordo com a necessidade da empresa
-</li>
-             <li>
-<span class="font-bold text-3xl"> 2.</span> Gerenciar campanhas de forma minuciosa
-</li>
-             <li> <span class="font-bold text-3xl">3.</span> Analisar resultados, verificando erros e acertos;
-             <li> <span class="font-bold text-3xl">4. </span>
-Melhorar ainda mais o custo/benefício da campanha.</li>
-
-         </ul>
-     </div>
-</div>
-        </div>
- 
+        </section>
 
 
 
 
+        <div class="px-8 md:px-14  bg-black pt-32 pb-10">
 
+            <h1 style="color: #c6121a;" class="pt-20 pb-6 font-extrabold text-4xl sm:text-5xl"
+            data-aos="fade-right">
+            PREÇÁRIOS (<span class="text-white">planos</span>)</h1>
 
-<div class="bg-gray-50 pt-20 pb-16 px-4 sm:px-10">
-
-
-    <h1 class="font-bold text-4xl md:text-center" style="line-height: 1.2em; color: #333333;">VOCÊ SÓ FICA A GANHAR!</h1>
-    <p class="md:text-center w-full">Prezamos por utilizar as melhores práticas no ramo da WEB.</p>
-  
-
-    <div class="servicos justify-center mt-5 flex flex-wrap">
-   
-         
-        <div class="w-full mt-10 flex flex-col md:flex-row justify-around items-center">
-<div class="">
-<ul class="flex listamnu mb-5 flex-wrap md:flex-col md:space-x-0 space-x-1">
-   <li class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50 actived" onclick="
-   document.querySelector('.webdev').style.display = 'block'
-   document.querySelector('.infd').style.display = 'none'
-   document.querySelector('.gesms').style.display = 'none'
-   document.querySelector('.desgra').style.display = 'none'
-   document.querySelector('.ftga').style.display = 'none'
-   document.querySelector('.others').style.display = 'none'
-"> <i class="fas text-white fa-globe mr-2"></i> SEO</li>
-   <li onclick="
-   document.querySelector('.webdev').style.display = 'none'
-   document.querySelector('.infd').style.display = 'block'
-   document.querySelector('.gesms').style.display = 'none'
-   document.querySelector('.desgra').style.display = 'none'
-   document.querySelector('.ftga').style.display = 'none'
-   document.querySelector('.others').style.display = 'none'
-" class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50"> <i class="fas text-white fa- fa-tablet mr-2"></i> Responsividade</li>
-   <li onclick="
-   document.querySelector('.webdev').style.display = 'none'
-   document.querySelector('.infd').style.display = 'none'
-   document.querySelector('.gesms').style.display = 'block'
-   document.querySelector('.desgra').style.display = 'none'
-   document.querySelector('.ftga').style.display = 'none'
-   document.querySelector('.others').style.display = 'none'
-" class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50"> <i class="fas text-white fa-code mr-1"></i> Melhor performance</li>
-   <li onclick="
-   document.querySelector('.webdev').style.display = 'none'
-   document.querySelector('.infd').style.display = 'none'
-   document.querySelector('.gesms').style.display = 'none'
-   document.querySelector('.desgra').style.display = 'block'
-   document.querySelector('.ftga').style.display = 'none'
-   document.querySelector('.others').style.display = 'none'
-" class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50"> <i class="fas text-white fa-lightbulb mr-2"></i> WEB DESIGN</li>
-   <li onclick="
-   document.querySelector('.webdev').style.display = 'none'
-   document.querySelector('.infd').style.display = 'none'
-   document.querySelector('.gesms').style.display = 'none'
-   document.querySelector('.desgra').style.display = 'none'
-   document.querySelector('.ftga').style.display = 'block'
-   document.querySelector('.others').style.display = 'none'
-" class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50"> <i class="fas text-white fa-tasks mr-1"></i> Funcionalidade</li>
-   <li onclick="
-   document.querySelector('.webdev').style.display = 'none'
-   document.querySelector('.infd').style.display = 'none'
-   document.querySelector('.gesms').style.display = 'none'
-   document.querySelector('.desgra').style.display = 'none'
-   document.querySelector('.ftga').style.display = 'none'
-   document.querySelector('.others').style.display = 'block'
-" class="bg-red-700 transition cursor-pointer py-2 px-10 rounded-lg mb-2 text-red-50"> <i class="fa fa-shield-alt mr-1"></i> Segurança</li>
-</ul>
-
-</div>
-
-
-
-
-<div style="background: url('assets/smartphone_PNG101498.png'); height: 80%; width: 350px;  background-size: cover; background-repeat: no-repeat;" class="border-gray-400 flex justify-center pt-10  rounded-xl px-3 pb-5">
-<!-- <div class="bg-red-600 w-32 h-5 shadow-2xl -mt-4 rounded-t-md"></div>    -->
-<div style="height: 500px;" class=" py-5 w-72 phoneuse  flex-shrink-0 rounded-b-2xl">
-<div class="webdev px-2 justify-center items-center w-full pt-12 flex flex-col ">
-
-   <div class="justify-center w-full flex ">
-    <img class="h-10" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png">
-   </div>
-    <div class="border rounded-full w-full mt-2 pt-1.5 pb-2 px-5">
-    <p class="typeText"></p>
-</div>
-
-<div class="pt-7  w-full h-48">
-<img id="qwsda1" class="rounded-xl shadow" src="https://magnus-ui.com/images/docs/skeleton/1.gif">
-<div class='border shadow p-5 bg-white w-full rounded-xl jhj' style="display:none;">
-    <p class='text-gray-800 font-semibold'>kudikadigital.com</p>
-  
-</div>
-<div class='border shadow p-5 bg-white w-full rounded-xl jhjj mt-1' style="display:none;">
-    <p class='text-gray-800 font-semibold'>outros sites.com</p>
-
-</div>
-</div>
-<div class=" pt-1.5">
-<p class="pt-5 bg-red-600 text-red-50 px-4 h-32 rounded-xl">    O seu site estará no <span class="font-semibold">lugar nº 1 no ranking dos motores de busca</span>. Nós ajudaremos a alcançar essa visibilidade.</p>
-</div>
-</div>
-
-
-<div class="infd dnone">Descubra como aumentar o seu potencial desenvolvendo o Marketing de
-   influência. Criando laços que conectem o seu público e lhe façam atingir milhões de consumidores.</div>
-<div class="gesms dnone"> Deixe-nos criar conteúdos, publicar imagens e vídeos para engajar o seu público alvo, e permitir que
-   venda mais, atraia mais e mantenha a estabilidade.</div>
-<div class="desgra dnone">  Marca, logotipo, identidade visual, catálogo, portfólio, folder, apresentação, anúncio, peça
-   publicitária, banners, embalagem, papelaria, sinalização, fachadas e muito mais.</div>
-<div class="ftga dnone">
-   <ul style="list-style: disc;" class=" px-5"> 
-       <li>Criação de álbuns, revistas</li>  
-       <li>Prestação serviços de fotografia em eventos, como: Festas de aniversário, Casamentos, Batismos, Conferências, Exposições e Publicidades.</li> 
-     </ul>
-</div>
-<div class="others dnone">
-   
-   <ul style="list-style: disc;" class=" px-5">
-       <li>Copy Writer - Produto de conteúdo</li>
-       <li>Organização e coordenação de eventos</li>
-       <li>planejamento estratégico</li>
-       <li>Consultoria</li>
-   </ul>
-</div>
-</div>
-</div>
-
-        </div>
-        
-        
-       </div>
-
-
-
-
-   <div class="text-center pt-32 pb-10">
-
-    <h1 class="font-bold text-4xl" style="line-height: 1.2em; color: #333333;">PREÇÁRIOS</h1>
-
+            <div style="background:url('https://assets.website-files.com/5837424ae11409586f837994/61195e21f792d7065d2f56ad_noise.png');" class="servicos justify-center mt-14 flex flex-wrap">
+                <div class="shadow-lg border rounded-xl transform mb-3 mr-0.5 hover:-translate-y-2 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-72 p-5">
+                    <div class=" space-x-2 items-center">
+                        <p class="text-2xl font-bold text-red-600">Landing page</p>
+                        <p class="text-lg font-thin text-red-200 text-opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h1 class="block text-4xl text-white  font-bold mt-14 mb-14">94.900 AKZ</h1>
+                    </div>
     
-    <div class="servicos justify-center mt-14 flex flex-wrap">
-        <div class="shadow-lg border transform translate-y-1 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-96 p-5">
-            <div class=" space-x-2 items-center">
-                <p class="text-2xl font-semibold">Título</p>
-                <h1 class="block text-6xl font-bold">N Kz</h1>
+                    <a href="#contactenos"
+                    style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                    class="text-white rotacao w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                    Solicitar</a>
+                </div>
+
+
+            
+        
+                <div class="shadow-lg border rounded-xl transform mb-3 mr-0.5 hover:-translate-y-2 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-72 p-5">
+                    <div class=" space-x-2 items-center">
+                        <p class="text-2xl font-bold text-red-600">One Page</p>
+                        <p class="text-lg font-thin text-red-200 text-opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h1 class="block text-4xl text-white  font-bold mt-14 mb-14">149.999 AKZ</h1>
+                    </div>
+    
+                    <a href="#contactenos"
+                    style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                    class="text-white rotacao w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                    Solicitar</a>
+                </div>
+
+                
+                <div class="shadow-lg border rounded-xl transform mb-3 mr-0.5 hover:-translate-y-2 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-72 p-5">
+                    <div class=" space-x-2 items-center">
+                        <p class="text-2xl font-bold text-red-600">Tradicional</p>
+                        <p class="text-lg font-thin text-red-200 text-opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h1 class="block text-4xl text-white  font-bold mt-14 mb-14">259.900 AKZ</h1>
+                    </div>
+    
+                    <a href="#contactenos"
+                    style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                    class="text-white rotacao w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                    Solicitar</a>
+                </div>
+
+                <div class="shadow-lg border rounded-xl transform mb-3 mr-0.5 hover:-translate-y-2 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-72 p-5">
+                    <div class=" space-x-2 items-center">
+                        <p class="text-2xl font-bold text-red-600">E-commerce</p>
+                        <p class="text-lg font-thin text-red-200 text-opacity-70">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h1 class="block text-4xl text-white  font-bold mt-14 mb-14">489.999 AKZ</h1>
+                    </div>
+    
+                    <a href="#contactenos"
+                    style="background: url('assets/Retangulo_Arredondado_3.png'); background-size: contain; background-repeat: no-repeat;"
+                    class="text-white rotacao w-52 h-16 flex items-center justify-center cursor-pointer font-bold">
+                    Solicitar</a>
+                </div>
+
+
             </div>
-            <p class="text-gray-500 mt-3 pb-5" style="font-weight: 100;">
-                <ul>
-                    <li>1 coisa incluída </li>
-                    <li>outra coisa incluída </li>
-                    <li>mais outra coisa incluída </li>
-                </ul>
-            </p>
+
+        </div>
+
         </div>
 
 
-        <div class="shadow-lg bg-white border transform md:hover:translate-y-1 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-96 p-5">
-            <div class=" space-x-2 items-center">
-                <p class="text-2xl font-semibold">Título</p>
-                <h1 class="block text-6xl font-bold">N Kz</h1>
-            </div>
-            <p class="text-gray-500 mt-3 pb-5" style="font-weight: 100;">
-                <ul>
-                    <li>1 coisa incluída </li>
-                    <li>outra coisa incluída </li>
-                    <li>mais outra coisa incluída </li>
-                </ul>
-            </p>
-        </div>
-        <div class="shadow-lg border transform translate-y-1 cursor-pointer transition w-full sm:w-64 md:w-72 xl:w-96 p-5">
-            <div class=" space-x-2 items-center">
-                <p class="text-2xl font-semibold">Título</p>
-                <h1 class="block text-6xl font-bold">N Kz</h1>
-            </div>
-            <p class="text-gray-500 mt-3 pb-5" style="font-weight: 100;">
-                <ul>
-                    <li>1 coisa incluída </li>
-                    <li>outra coisa incluída </li>
-                    <li>mais outra coisa incluída </li>
-                </ul>
-            </p>
-        </div>
-   
- 
-
-    </div>
-
-   </div>
-
-</div>
 
 
+<section class="infomore">
 
+</section>
+        <footer
+            style="background: linear-gradient(to left,#5e0000b0, black), url(assets/ContactBg.png); background-size: cover; background-attachment: fixed;"
+            class="px-5 md:px-40 pt-28 w-full">
 
-<div id="contact" class="bg-white mb-28 pt-32 px-3 sm:px-14 w-full">
-
-    <h1 id="contactar" class="font-bold text-4xl" style="line-height: 1.2em; color: #202020;">CONTACTE-NOS</h1>
-
-    <p style="margin-bottom: 30px; font-size: 0.9em; "> Tem dúvidas? Críticas? Sugestões? Fala connosco. Teremos o
-        maior prazer em receber a sua mensagem!</p>
-    <div class="w-full  md:items-center
-     flex
-     md:flex-row
-     flex-col">
-
-
-<!-- Make sure you don't change the form action-->
-<form action="https://api.staticforms.xyz/submit" method="post"  class="space-y-2.5 mr-8 w-full">
-<!-- Replace with accesKey sent to your email -->
-<input type="hidden" name="accessKey" value="0c3d5874-a513-4a84-bb14-a7d0559ecc01" class="border"> 
-<div class="flex space-x-2">
-
-    <div class="flex flex-col w-full">
-        <label class="block text-gray-800" style="font-size: 0.99em;">Nome</label>
-        <input type="text" placeholder="Digite o seu nome" name="name" id="" class="border bg-gray-100 hover:bg-white placeholder-gray-500 text-gray-800 w-full py-2 px-3 transition outline-none">
-    </div>
-
-    <div class="flex flex-col w-full">
-        <label class="block text-gray-800" style="font-size: 0.99em;">Número</label>
-        <input type="text" max="9" placeholder="Digite seu número de telefone" name="phone" id=""
-            class="border bg-gray-100 hover:bg-white placeholder-gray-500 text-gray-800 w-full py-2 px-3 transition outline-none">
-    </div>
-</div>
-
-
-<div class="flex space-x-2">
-    <div class="flex flex-col w-full">
-        <label class="block text-gray-800" style="font-size: 0.99em;">Email</label>
-        <input type="email" placeholder="email@exemplo.com" name="email" id=""
-            class="border bg-gray-100 hover:bg-white placeholder-gray-500 text-gray-800 w-full py-2 px-3 transition outline-none">
-
-    </div>
-</div>
-
-<div class="flex-col flex">
-    <label class="block mt-1 text-gray-800" style="font-size: 0.99em;">Assunto</label>
-    <input type="text" placeholder="Qual é o assunto para esta mensagem?" name="subject" id=""
-        class="border bg-gray-100 hover:bg-white placeholder-gray-500 text-gray-800 w-full py-2 px-3 transition outline-none">
-    <label class="block mt-2 text-gray-800" style="font-size: 0.99em;">Mensagem</label>
-    <textarea name="message" placeholder="Mensagem..." id=""
-        class="border bg-gray-100 hover:bg-white placeholder-gray-500 text-gray-800 w-full py-2 px-3 transition outline-none"></textarea>
-</div>
-
-<input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/index.html" class="border"> <!-- Optional -->
-
-<div style="margin-top: 15px !important;">
-    <input type="submit" value="Enviar" class="w-full py-3 bg-red-600 text-red-50">
-</div>
-
-</form>
-
-
-
-<!-- <input type="text" name="replyTo" value="myreplytoemail@example.com" class="border">  -->
-<!-- Optional -->
-<!-- Specify @ as reply to value if you want it to be customers email -->
-<!-- <input type="hidden" name="replyTo" value="@" class="border"> -->
-<!-- Optional -->
-<!-- If you want form to redirect to a specific url after submission -->
-        <div class="md:w-4/6 mt-10 md:-mt-10">
-
-            <div class="">
-                <p class="font-bold mt-5">LOCALIZAÇÃO</p>
-                <div class="flex space-x-2 items-center mb-3">
-                    <i class="text-red-600 text-lg fas fa-map-marker-alt"></i>
-                    <p class="text-gray-700 text-lg">Rangel, CTTs, Ed. Digital.ao</p>
+            <div
+                class="flex text-lg md:text-center flex-wrap md:items-center md:justify-center border flex-col md:flex-row shadow-2xl p-5 rounded-2xl">
+                <div class="md:w-80 mb-2">
+                    <img src="assets/logo2.png" class="h-16" alt="">
+                </div>
+                <div class="md:w-80 mb-2">
+                    <ul class="text-white">
+                        <li><i class="fa fa-map-marker"></i> Rangel, CTTs, Ed. Digital.ao</li>
+                        <li><i class="fa fa-envelope-open"></i> geral@kudikadigital.com</li>
+                    </ul>
+                </div>
+                <div class="md:w-80 mb-2">
+                    <ul class="text-white">
+                        <li><i class="fab fa-facebook-square"></i> kudika digital</li>
+                        <li><i class="fab fa-instagram"></i> kudikadigital</li>
+                    </ul>
                 </div>
             </div>
-            <div id="map"></div>
-        </div>
-    </div>
+        </footer>
 
 
-</div>
 
+        <script>
 
-<footer style="background: #202020;" class="pb-5 px-2 pt-5 sm:px-10">
-    <div class="md:flex-row md:items-center justify-around flex flex-col">
-        
-        <div>
-            <ul class="flex flex-col justify-center mt-5 sm:flex-row sm:space-x-3 text-red-100">
-                <a href="https://www.facebook.com/kudikadigital/">
-                    <li class="bg-red-600 flex px-3 py-1 justify-center mb-1 items-center"><i
-                            class="mr-2 fab fa-facebook-f text-2xl"></i> kudika digital</li>
-                </a>
-                <a href="">
-                    <li class="bg-red-600 flex px-3 py-1 justify-center mb-1 items-center"><i
-                            class="mr-2 fab fa-whatsapp text-2xl"></i> 932390190</li>
-                </a>
-                <a href="https://www.instagram.com/kudikadigital/">
-                    <li class="bg-red-600 flex px-3 py-1 justify-center mb-1 items-center"><i
-                            class="mr-2 fab fa-instagram text-2xl"></i> kudikadigital</li>
-                </a>
+            var btnContainer = document.querySelector(".listamnu")
+            var btns = btnContainer.getElementsByTagName("li")
     
-            </ul>
-        </div>
-    </div>
+            for (var i = 0; i < btns.length; i++) {
+    
+                btns[i].addEventListener('click', function () {
+                    var current = document.getElementsByClassName("actived");
+                    current[0].className = current[0].className.replace(" actived")
+                    this.className += " actived"
+                })
+            }
+    
+    
+    
+            ///////////////// Menu
+            const toggle = document.getElementById('toggle');
+            const menuUp = document.getElementById('menuUp');
+            const rmvMn = document.getElementById('removeMn');
+            toggle.onclick = function () {
+                // menuUp.classList.toggle('activeMenuUp');
+                menuUp.style.display = 'block';
+                menuUp.classList.add('fadeInLeft');
+            }
+    
+    
+            rmvMn.onclick = function () {
+                menuUp.style.display = 'none';
+            }
+        </script>
 
+        <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
+    <script>
+            lightGallery(document.getElementById('lightgallery'));
+        </script>
+        <script src="js/paper-core.min.js"></script>
+        <script src="js/simplex-noise.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/scriptservices.js"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+            <script src="js/pace.min.js"></script>
 
-    <div class="pt-20">
-    <hr class="w-50">
-    <p class="flex text-white justify-center">&copy; 2022 Kudika Digital</p>
-    </div>
+        <script src="js/all.js"></script>
+        
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-</footer>
+    <script>
+        // AOS.init();
 
+        AOS.init()
 
-    <script src="js/scriptservices.js"></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script src="js/all.js"></script>
+    </script>
 </body>
 
 </html>

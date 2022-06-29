@@ -31,7 +31,7 @@ if ('geolocation' in navigator) {
 //
 function bgChanger() {
     if (this.scrollY > this.innerHeight / 1.1) {
-        document.getElementById('asdfg').style.background = 'white';
+        // document.getElementById('asdfg').style.background = 'white';
         document.getElementById('qwert').classList.add('md:justify-between');
         // document.getElementById('asdfg').classList.add('md:flex');
         document.getElementById('check-i').style.color = "#202020";
@@ -43,7 +43,7 @@ function bgChanger() {
     } else {
       document.getElementById('menuuu').style.color = 'white';
       document.querySelector('.mobile-menu').style.color = 'white';
-        document.getElementById('asdfg').style.background = 'transparent';
+        // document.getElementById('asdfg').style.background = 'transparent';
         // document.getElementById('asdfg').classList.add('transition');
         document.getElementById('imgo').src='assets/logo2.png';
         
